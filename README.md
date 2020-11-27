@@ -1,4 +1,4 @@
-# grill_project_1
+# Santa Claus Problem
 <div align="center">
     <br />
     <img src="./th/Logo.png" alt="Reservoir Logo" width="250"/>
