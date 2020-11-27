@@ -11,7 +11,7 @@ schriftliche Arbeiten, wie auch die Praktische Arbeit in NVS, nicht stattfinden.
 dieses Projekt bzw. Aufgabenstellung die Leistungüberprüfung ersetzt. Diese Projekt hat auch sinnvollerweiße Einfluss auf die Beurteilung.
 Das Projekt deckt folgende Themen ab: Threads, Processe, Synchronisation, Synchronisation Mechanismus, Parallel Programming, Bedingungssynchronisation
 
-#Santa Claus Problem
+# Santa Claus Problem
 In diesem Projekt geht es darum, dass Santa Claus umbedingt seinen Schlaf benötigt, jedoch wird er von seinen Elfen oder Renntieren benötigt.
 Er möchte aber auch die Kinder glücklich machen, darum ist es wichtig, dass er hin und wieder aufsteht und seinen Mitmenschen hilft, weil 
 ohne der Hilfe von Santa Claus können einige Arbeiten nicht vollendet werden. Der Sinn der Aufgabe liegt, darin, dass trotz des notwendigen Schlafes von
