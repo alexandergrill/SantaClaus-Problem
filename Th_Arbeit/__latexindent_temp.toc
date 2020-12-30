@@ -1,4 +1,0 @@
-\babel@toc {ngerman}{}
-\contentsline {section}{\numberline {1}Einführung}{2}{}%
-\contentsline {subsection}{\numberline {1.1}Vorwort}{2}{}%
-\contentsline {subsection}{\numberline {1.2}Erklärung der Grundproblematik}{2}{}%

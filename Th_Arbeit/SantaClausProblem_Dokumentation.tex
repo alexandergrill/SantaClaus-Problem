@@ -42,19 +42,46 @@
 \newpage
 
 \section{Einführung}
-
+ 
 \subsection{Vorwort}
+
 Auf Grund der akuellen Lage(COVID-19) in Österreich, wurde der Unterricht an den Schulen
 in Form von Distance-Learning abgehalten. Dehsalb war die Durchführung der Praktischen Arbeit in
 Netzwerktechnick nicht möglich. Herr Professor Kolouseck gab uns daraufhin eine Projektarbeit die bis zum 
 20.01.2021 zu erledigen ist. Die Gesamtnote des Projekt ersetzt ausschließliche die Note,
-die man bei der Praktischen Arbeit erworben hätte In diesem Projekt geht es darum mit Prozessen, Thread und Synchronisation
+die man bei der Praktischen Arbeit erworben hätte. In diesem Projekt geht es darum mit Prozessen, Thread und Synchronisation
 für die jeweiligen Anwendungszenarien entwickelt werden, um damit zu zeigne, dass die Praktischen
 Fähigkeiten zum Implementieren verteiler Systeme erworben wurden. Die Programmiersprache die für
-die Implementierung verwendet wird, ist C++
+die Implementierung verwendet wird, ist C++.
+
+\begin{description}
+    \item[Das Projekt besteht aus 3 wichtigen Punkten:] ~\par
+    \begin{itemize}
+        \item praktischen Ausarbeitung
+        \begin{itemize}
+            \item  dabei wird die Grundproblematik simuliert, klargestellt und verschiedenste Szenarios angewendet 
+        \end{itemize}
+        \item theoretisch Ausarbeitung
+        \begin{itemize}
+            \item  in diesem Teil wird die Aufgabenstellung, Probleme, Dokumentation der Source Codes usw. festgehalten 
+        \end{itemize}
+        \item Git Hub Repository
+        \begin{itemize}
+            \item das Projekt muss auf GitHub gehostet werden, um die Verwaltung der Projekts zu erlechtern und, um den Workflow zu dokumentiern 
+            \item Commites müssen gemacht werden, das man etwas als Patch verwenden kann (Fehler, Probleme können zurückgenommenr werden)
+            \item Commit-Meldungen sollen kurz und prägnant sein und sollen ausdrücken für was dieser Commit steht.
+        \end{itemize}
+    \end{itemize} 
+    \end{description}
 
 \subsection{Motivation}
-In diesem Projekt wird die Santa Claus Problematik erläutern und auch implementier
+In diesem Projekt wird die Santa Claus Problematik erläutert und mit Hilfe eines C++ Projekt simuliert. Santa Claus wird wegen 
+zwei Faktoren geweckt, sonst benötigt er umbedingt seinen Schlaf. Er wird geweckt, wenn Elfen ihm brauchen, weil sie mit der Arbeit
+nicht weiter kommen, und dadurch die Produktion der Geschenke für die Kinder verlangsamt oder gar gestoppt wird. Deshalb ist es wichtig, dass 
+in diesem Moment Santa geweckt wird, um Santa den Elfen helfen zu können. Zugleich kommen auch die Renntiere in unterschiedlichen Zeitpunkten zurück von ihrere Reise und sammeln sich im Stall.
+Dort warten sie gemeinsam bis sie vollzählig sind und Santa mit ihnen, folgedessen die Geschenke zu den Kindern liefern. Auch in diesem Moment ist es
+äußerst wichtig, dass Santa geweckt wird, weil er schon einen Teil der Geschenke mit den Renntieren ausliefern kann. Zu beachten ist jedoch, dass es zu keinem Zusammenstoß zwischen den Gruppen kommmt
+und Santa Claus nicht weiß, welche Tätigkeiten zuerst vollendet werden sollen bzw. welche eine höhere Priorität haben.
 
 
 
@@ -62,15 +89,30 @@ In diesem Projekt wird die Santa Claus Problematik erläutern und auch implement
 
 \section{Aufgabenstelllung}
 \subsection{Erleuterung der Grundproblematik}
+Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgende Problemstellung beschreiben:\\ 
+\\Santa Claus sitzt in seinem Spielwarenladen am Nordpol und schläft, während seine zurückgekommene Renntiere im Stall fressen
+um Kräfte für die jährliche Auslieferung der Geschenk an die Kinder zu Weihnachten zu sammeln. Seine fleißigen Elfen arbeiten sorgfälltig an den Geschenken der Kinder
+in der Spielzeugfabrik. Hin und wieder kann es vorkommen, dass die Elven beim Basteln vor einem Problem stehen und ohne Hilfe vom Santa nicht mehr weiter machen können.
+Es wäre eine Katastrophe, wenn die Geschenke nicht rechtzeitig am Heiligen Abend an die Kinder ausgeliefert werden können, weil einige Elfen die Produktion der Geschenke blockiert haben. \\\\
+Aus diesem Grund muss Santa Claus umbedingt geweckt werden, obwohl er ein gewisses Maß an dringendem Schlaf benötigt. Erst wenn 3 oder mehr Elfen ohne Hilfe nicht mehr weiter arbeiten können wecken sie ihn auf.
+Wenn drei Elfen ihr Problem gelöst haben, müssen alle anderen Elfen, die den Weihnachtsmann besuchen wollen auf die Rückkehr dieser Elfen warten.
+Jedoch ist zu beachten, dass wenn Elfen vor der Tür seines Ladens warten, während das letzte Rentier für die Auslieferung aus dem Tropen zurückkehrt, beschließt der Weihnachtsmann, die Elfen bis nach Weihnachten warten zu lassen. Denn die es ist wichtiger den Schlitten
+fertigzustellen und die Packete auszuliefern.
+Nachdem Santa Claus ihnen beim Problem geholfen hat, können die Elfen erleichternd weiterbasteln und Santa Claus seinen Schlaf forsetzen.\\
+\\Allerdings möchte Santa Claus die Kinder nicht zu lange auf ihre Geschenke warte lassen, und deshalb soll er auch aufgeweckt werden, wenn genuge Renntiere bereit sind bzw. zurück aus ihrem Urlaub im Südpazifik gekommen sind, um den 
+Schlitten mit den Geschenken zu ziehen und eine Ladung Geschenke zu verteilen. Das letzte Rentier, das ankommt, muss den Weihnachtsmann holen, währen die anderen Rentiere gemütlich in der warmen Hütte warten, bevor sie vor dem Schlitten gespannt werden.\\
+\\Die restliche Zeit kann Santa schlafen, um für die nächste anstregenden Tätigkeiten Kräfte zu schöpfen. Mann kann davon ausgehen, dass stets genug Arbeit für die Elfen und genug Geschenke für eine Ladung Geschenke vorhanden sind.
+Das heißt Elfen und Renntiere sind weitgehend unabhängig voneinander. Santa Claus, seine Renntiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintrehten von Szenarien festgehalten werden kann.
 
 \section{Implementierung}
 
 \subsection{Dokumentation des Source Codes}
 \subsubsection{Klasen}
 \subsubsection{Funktionen}
+\subsubsection{Kommandozeilenparameter}
 \subsubsection{Sonstiges}
 
-\subsection{Verwendete Software}
+\subsection{Verwendete Bibliotheken}
 
 
 \begin{minted}{cpp}
