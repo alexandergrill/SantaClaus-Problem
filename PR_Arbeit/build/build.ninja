@@ -38,7 +38,7 @@ build PHONY: phony
 
 build santa_claus@exe/src_main.cpp.o: cpp_COMPILER ../src/main.cpp
  DEPFILE = santa_claus@exe/src_main.cpp.o.d
- ARGS = -Isanta_claus@exe -I. -I.. -I../include -I/home/alex -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++14 -g -pthread
+ ARGS = -Isanta_claus@exe -I. -I.. -I../include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++14 -g -pthread
 
 build santa_claus: cpp_LINKER santa_claus@exe/src_main.cpp.o
  LINK_ARGS = -Wl,--as-needed -Wl,--no-undefined -pthread

@@ -1,6 +1,6 @@
-Build started at 2020-11-28T15:05:56.566658
+Build started at 2020-12-30T19:02:51.522471
 Main binary: /usr/bin/python3
-Build Options: 
+Build Options: -Dbackend=ninja
 Python system: Linux
 The Meson build system
 Version: 0.53.2
@@ -9,34 +9,8 @@ Build dir: /home/alex/Desktop/grill_project_1/PR_Arbeit/build
 Build type: native build
 Project name: santa_claus
 Project version: undefined
-No CXXFLAGS in the environment, not changing global flags.
-No LDFLAGS in the environment, not changing global flags.
-No CPPFLAGS in the environment, not changing global flags.
-Sanity testing C++ compiler: c++
-Is cross compiler: False.
-Sanity check compiler command line: c++ /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.cc -o /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
-Sanity check compile stdout:
-
------
-Sanity check compile stderr:
-
------
-Running test binary command: /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.exe
 C++ compiler for the build machine: c++ (gcc 9.3.0 "c++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0")
 C++ linker for the build machine: c++ ld.bfd 2.34
-No CXXFLAGS in the environment, not changing global flags.
-No LDFLAGS in the environment, not changing global flags.
-No CPPFLAGS in the environment, not changing global flags.
-Sanity testing C++ compiler: c++
-Is cross compiler: False.
-Sanity check compiler command line: c++ /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.cc -o /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.exe -pipe -D_FILE_OFFSET_BITS=64
-Sanity check compile stdout:
-
------
-Sanity check compile stderr:
-
------
-Running test binary command: /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/sanitycheckcpp.exe
 C++ compiler for the host machine: c++ (gcc 9.3.0 "c++ (Ubuntu 9.3.0-17ubuntu1~20.04) 9.3.0")
 C++ linker for the host machine: c++ ld.bfd 2.34
 Build machine cpu family: x86_64
@@ -45,13 +19,13 @@ Host machine cpu family: x86_64
 Host machine cpu: x86_64
 Target machine cpu family: x86_64
 Target machine cpu: x86_64
-Run-time dependency threads found: YES
+Dependency threads found: YES unknown (cached)
 Build targets in project: 1
 
 Found ninja-1.10.0 at /usr/bin/ninja
 Running compile:
-Working directory:  /tmp/tmpyss9mz9t
-Command line:  c++ /tmp/tmpyss9mz9t/testfile.cpp -o /tmp/tmpyss9mz9t/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
+Working directory:  /tmp/tmph9zlp7ah
+Command line:  c++ /tmp/tmph9zlp7ah/testfile.cpp -o /tmp/tmph9zlp7ah/output.obj -pipe -D_FILE_OFFSET_BITS=64 -c -std=c++14 
 
 Code:
  int i = static_cast<int>(0);
@@ -61,8 +35,8 @@ Compiler stderr:
  
 Compiler accepts -std=c++14: YES
 Running compile:
-Working directory:  /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpmqzqzote
-Command line:  c++ /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpmqzqzote/testfile.cpp -o /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpmqzqzote/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
+Working directory:  /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpukgze_3b
+Command line:  c++ /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpukgze_3b/testfile.cpp -o /home/alex/Desktop/grill_project_1/PR_Arbeit/build/meson-private/tmpukgze_3b/output.obj -pipe -c -D_FILE_OFFSET_BITS=64 -O0 -fpermissive --print-search-dirs 
 
 Code:
  

@@ -3,7 +3,7 @@ project('santa_claus', 'cpp',
 
 thread_dep = dependency('threads')
 
-inc_dir = include_directories('include', '/home/alex')
+inc_dir = include_directories('include')
 src = ['src/main.cpp']
 
 executable('santa_claus',
