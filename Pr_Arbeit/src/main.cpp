@@ -23,23 +23,17 @@ std::condition_variable santaSem;
 std::condition_variable reindeerSem;
 std::condition_variable elfTex;
 std::mutex mx;
-int reindeer{0};
 
-bool hitchable() { return reindeer == 9; }
 
-class Elves
-{
+
+class Elves{
 private:
     int elves{0};
-
 public:
-    Elves()
-    {
+    Elves(){
     }
-    void operator()()
-    {
-        while (true)
-        {
+    void operator()(){
+        while (true){
             unique_lock<mutex> ulg{mx};
             random_device rd;
             mt19937 gen{rd()};
@@ -49,16 +43,13 @@ public:
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
             cout << fg::blue << elves << " need help\n" << flush;
-            if (elves == 3)
-            {
+            if (elves == 3){
                 santaSem.notify_one();
             }
         }
     }
-    void getHelp()
-    {
-        while (elves < 0)
-        {
+    void getHelp(){
+        while (elves < 0){
             unique_lock<mutex> ulg{mx};
             random_device rd;
             mt19937 gen{rd()};
@@ -70,8 +61,7 @@ public:
             elves -= 1;
         }
     }
-    int getElves()
-    {
+    int getElves(){
         return elves;
     }
 };
@@ -79,49 +69,39 @@ public:
 class SantaClaus{
 private:
     Elves* elv;
-
+    Reindeers * ren;
 public:
-    SantaClaus(Elves* e){
+    SantaClaus(Elves* e, Reindeers* r){
         elv = e;
+        ren = r; 
     }
     void operator()(){
         while(true){
             unique_lock<mutex> ul{mx};
             santaSem.wait(ul);
-            if(reindeer < 9 ){
-                cout << fg::red << "The reindeers are not enough to fly only " << reindeer << "\n" << flush;
+            if(ren->getReindeer() < 9 ){
+                cout << fg::red << "The reindeers are not enough to fly only " << ren->getReindeer() << "\n" << flush;
             }
-            if(reindeer == 9){
+            if (ren->getReindeer() == 9){
                 cout << "Start\n" << flush;
                 reindeerSem.notify_one();
-                reindeer -= 9;
+                 ren->resetReindeer();
             }
             if(elv->getElves() == 3){
                 elv->getHelp();
             }
-
             this_thread::sleep_for(3s);
         }
-    }
-    void addReindeer(){
-        reindeer += 1;
-    }
-
-    int getReindeer(){
-        return reindeer;
     }
 };
 
 class Reindeers{
 private:
-    SantaClaus* santa;
-
+    int reindeer{0};
 public:
-    Reindeers(SantaClaus* s){
-        santa = s;
+    Reindeers(){
     }
     void operator()(){
-       
         while(true){
             unique_lock<mutex> ulg{mx};
             random_device rd;
@@ -132,23 +112,29 @@ public:
             this_thread::sleep_for(chrono::milliseconds(t));
            
             cout << fg::yellow << "Additional Reindeer is ready\n"<< flush;
-            santa->addReindeer();
+            reindeer += 1;
            
-            if(santa->getReindeer() == 9){
+            if(reindeer == 9){
                 santaSem.notify_one();
             }
+            this_thread::sleep_for(1s);
             ulg.unlock();
             //reindeerSem.wait(ulg, hitchable);
             //cout << "we can fly" << endl;
         }
 
     }
+    int getReindeer(){
+        return reindeer;
+    }
+    void resetReindeer(){
+        reindeer = 0;
+    }
 };
 
 
 
 int main(int argc, char *argv[]){
-    
     int reendiernum{9};
     int elvesnum{10};
     int time{24};
@@ -160,12 +146,15 @@ int main(int argc, char *argv[]){
 
     CLI11_PARSE(app, argc, argv);
     Elves ev;
-    SantaClaus sc(&ev);
-    Reindeers rs(&sc);
+    Reindeers rs;
+    SantaClaus sc(&ev, &rs);
+
 
     thread tsanta{sc};
     thread treindeers{rs};
+    thread telves{ev};
 
     tsanta.join(),
     treindeers.join();
+    telves.join();
 }
