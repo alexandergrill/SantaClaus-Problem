@@ -1,0 +1,8 @@
+[
+  {
+    "directory": "/home/alex/Desktop/grill_project_1/PR_Arbeit/build",
+    "command": "c++ -Isanta_claus@exe -I. -I.. -I../include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -std=c++14 -g -pthread -MD -MQ 'santa_claus@exe/src_main.cpp.o' -MF 'santa_claus@exe/src_main.cpp.o.d' -o 'santa_claus@exe/src_main.cpp.o' -c ../src/main.cpp",
+    "file": "../src/main.cpp",
+    "output": "santa_claus@exe/src_main.cpp.o"
+  }
+]
