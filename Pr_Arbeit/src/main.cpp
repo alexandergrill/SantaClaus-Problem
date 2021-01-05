@@ -7,7 +7,7 @@
 
 #include "CLI11.hpp"
 #include "rang.hpp"
-#include "tabulate.hpp"
+//#include "tabulate.hpp"
 #include <iostream>
 #include <thread>
 #include <condition_variable>
@@ -17,7 +17,7 @@
 
 using namespace std;
 using namespace rang;
-using namespace tabulate;
+//using namespace tabulate;
 
 std::condition_variable santaSem;
 std::condition_variable reindeerSem;
@@ -137,7 +137,8 @@ public:
         while (readytofly == false && christmas == false){
             unique_lock<mutex> ul{mx};
             santaSem.wait(ul, [&]() { return enoughtreindeer == true || enoughtelves == true; });
-            if (ren->getReindeer() == 0){
+            cout << "Ren: " << ren->getReindeer() << endl;
+            if (ren->getReindeer() == 9){
                 reindeerSem.notify_one();
                 readytofly = true;
                 ren->resetReindeer();
@@ -170,15 +171,17 @@ int main(int argc, char *argv[]){
 
     thread tsanta{sc};
     thread treindeers{rs};
-    thread ttime(hourTOchristmas, time);
+    //thread ttime(hourTOchristmas, time);
 
     //thread telves{ev};
 
     tsanta.join(),
     treindeers.join();
-    ttime.join();
+    //ttime.join();
     if (readytofly == false && christmas == true){
         cerr << fg::red << "Christmas is over!\n" << flush;
     }
     //telves.join();
 }
+
+
