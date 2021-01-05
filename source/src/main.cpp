@@ -19,11 +19,12 @@ using namespace std;
 using namespace rang;
 //using namespace tabulate;
 
-std::condition_variable santaSem;
-std::condition_variable reindeerSem;
-std::condition_variable elfTex;
 std::mutex mx;
 std::mutex mx2;
+
+std::condition_variable elfTex;
+std::condition_variable santaSem;
+std::condition_variable reindeerSem;
 
 bool enoughtreindeer = false;
 bool enoughtelves = false;
@@ -47,13 +48,13 @@ private:
     int reindeer{0};
 public:
     Reindeers(){
-    }
-    void operator()(){
+    }    
+    void comeback(){
         while (readytofly == false && christmas == false){
             unique_lock<mutex> ulr{mx};
             random_device rd;
             mt19937 gen{rd()};
-            uniform_real_distribution<> dis{0, 3};
+            uniform_real_distribution<> dis{0.0, 0.2};
             double time = dis(gen);
             int t = time * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
@@ -63,7 +64,7 @@ public:
                 enoughtreindeer = true;
                 santaSem.notify_one();
             }
-            if(reindeerSem.wait_for(ulr, 3s, [&]{return readytofly == true;})){
+            if(reindeerSem.wait_for(ulr, 1s, [&]{return readytofly == true;})){
                 getHitched();
             }
         }
@@ -93,7 +94,7 @@ public:
             unique_lock<mutex> ulh{mx};
             random_device rd;
             mt19937 gen{rd()};
-            uniform_real_distribution<> dis{0.5, 1.0};
+            uniform_real_distribution<> dis{0.0, 0.2};
             double time = dis(gen);
             int t = time * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
@@ -126,25 +127,26 @@ public:
 
 class SantaClaus{
 private:
-    Elves* elv;
-    Reindeers* ren;
+    Elves elv;
+    Reindeers ren;
 public:
-    SantaClaus(Elves* e, Reindeers* r){
+
+    SantaClaus(Elves& e, Reindeers& r){
         elv = e;
         ren = r; 
     }
-    void operator()(){
+    void sleep(){
         while (readytofly == false && christmas == false){
             unique_lock<mutex> ul{mx};
             santaSem.wait(ul, [&]() { return enoughtreindeer == true || enoughtelves == true; });
-            cout << "Ren: " << ren->getReindeer() << endl;
-            if (ren->getReindeer() == 9){
+            cout << "Ren: " << ren.getReindeer() << endl;
+            if (ren.getReindeer() == 9){
                 reindeerSem.notify_one();
                 readytofly = true;
-                ren->resetReindeer();
+                ren.resetReindeer();
             }
-            if(elv->getElves() == 3){
-                elv->getHelp();
+            if(elv.getElves() == 3){
+                elv.getHelp();
             }
         }
     }
@@ -166,11 +168,11 @@ int main(int argc, char *argv[]){
     CLI11_PARSE(app, argc, argv);
     Elves ev;
     Reindeers rs;
-    SantaClaus sc(&ev, &rs);
+    SantaClaus sc(ev,rs);
 
 
-    thread tsanta{sc};
-    thread treindeers{rs};
+    thread tsanta([&]{sc.sleep();});
+    thread treindeers([&]{rs.comeback();});
     //thread ttime(hourTOchristmas, time);
 
     //thread telves{ev};
