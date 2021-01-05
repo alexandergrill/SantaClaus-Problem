@@ -127,14 +127,12 @@ public:
 
 class SantaClaus{
 private:
-    Elves elv;
-    Reindeers ren;
+    Elves& elv;
+    Reindeers& ren;
 public:
-
-    SantaClaus(Elves& e, Reindeers& r){
-        elv = e;
-        ren = r; 
+    SantaClaus(Elves& e, Reindeers& r):elv{e},ren{r}{ 
     }
+
     void sleep(){
         while (readytofly == false && christmas == false){
             unique_lock<mutex> ul{mx};
