@@ -16,12 +16,13 @@
 class Reindeer{
 private:
     int reindeer{0};
-    SantaClaus &sc;
+    SantaClaus& sc;
     std::mutex& mxr;
-    std::condition_variable reindeerSem;
 public:
-    Reindeer(SantaClaus s,std::mutex& xr):sc{s}, mxr{xr}{
+    std::condition_variable reindeerSem;
+    Reindeer(std::mutex& xr):mxr{xr}{
     }
+    void setSanta(SantaClaus* s);
     void comeback();
     int getReindeer();
     void resetReindeer();

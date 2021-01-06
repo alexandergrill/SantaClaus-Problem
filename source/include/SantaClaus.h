@@ -19,12 +19,17 @@ private:
     Elves &elv;
     Reindeer &ren;
     std::mutex &mxs;
-    std::condition_variable santaSem;
+    bool enoughtreindeer{false};
+    bool enoughtelves{false};
+
 public:
+    std::condition_variable santaSem;
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
 
     }
     void sleep();
+    void set_enoughtreindeer();
+    void set_enoughtelves();
 };
 
 #endif

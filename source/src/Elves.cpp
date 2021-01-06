@@ -28,9 +28,9 @@ void Elves::tinker(){
         elves += 1;
         cout << fg::cyan << elves << " Elves need help\n" << flush;
         if (elves == 3){
-            enoughtelves = true;
+            sc->set_enoughtelves();
             cout << "hello elves" << endl;
-            santaSem.notify_one();
+            sc->santaSem.notify_one();
             this_thread::sleep_for(3s);
         }
     }
@@ -45,13 +45,15 @@ void Elves::getHelp(){
         double time = dis(gen);
         int t = time * 1000;
         this_thread::sleep_for(chrono::milliseconds(t));
-        cout << fg::blue << (elves - 3) * -1 << " elves helped\n"
-             << flush;
+        cout << fg::blue << (elves - 3) * -1 << " elves helped\n"<< flush;
         elves -= 1;
-        enoughtelves = false;
     }
 }
 
 int Elves::getElves(){
     return elves;
+}
+
+void Elves::setSanta(SantaClaus* s){
+    sc = s;
 }

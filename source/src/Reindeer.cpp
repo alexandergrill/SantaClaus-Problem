@@ -16,10 +16,8 @@
 using namespace std;
 using namespace rang;
 
-void Reindeer::comeback()
-{
-    while (readytofly == false && christmas == false)
-    {
+void Reindeer::comeback(){
+    while (readytofly == false && christmas == false){
         unique_lock<std::mutex> ulr{mxr};
         random_device rd;
         mt19937 gen{rd()};
@@ -29,13 +27,11 @@ void Reindeer::comeback()
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
-        if (reindeer == 9)
-        {
-            enoughtreindeer = true;
-            santaSem.notify_one();
+        if (reindeer == 9){
+            sc->set_enoughtreindeer();
+            sc->santaSem.notify_one();
         }
-        if (reindeerSem.wait_for(ulr, 1s, [&] { return readytofly == true; }))
-        {
+        if (reindeerSem.wait_for(ulr, 1s, [&] { return readytofly == true; })){
             getHitched();
         }
     }
@@ -54,4 +50,7 @@ void Reindeer::getHitched(){
     this_thread::sleep_for(3s);
     cout << fg::green << "Santa we can fly\n" << flush;
     cout << fg::green << "Merry Christmas Ho Ho Ho\n" << flush;
+}
+void Reindeer::setSanta(SantaClaus *s){
+    sc = s;
 }

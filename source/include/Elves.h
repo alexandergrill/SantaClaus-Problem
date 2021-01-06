@@ -16,12 +16,13 @@
 class Elves{
 private:
     int elves{0};
-    SantaClaus& sc;
+    SantaClaus* sc;
     std::mutex& mxe;
     std::condition_variable elfTex;
 public:
-    Elves(SantaClaus s, std::mutex& xe):sc{s},mxe{xe}{
+    Elves(std::mutex& xe):mxe{xe}{
     }
+    void setSanta(SantaClaus* s);
     void tinker();
     void getHelp();
     int getElves();
