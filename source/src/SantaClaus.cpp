@@ -13,7 +13,7 @@ using namespace std;
 
 
 void SantaClaus::sleep(){
-    while (readytofly == false && christmas == false){
+    while (readytofly == false){
         unique_lock<mutex> ul{mxs};
         santaSem.wait(ul, [&]() { return enoughtelves == true || enoughtreindeer == true; });
         if (ren.getReindeer() == 9){
@@ -32,4 +32,8 @@ void SantaClaus::set_enoughtreindeer(){
 }
 void SantaClaus::set_enoughtelves(){
     enoughtelves = true;
+}
+
+bool SantaClaus::get_readytofly(){
+    return readytofly;
 }

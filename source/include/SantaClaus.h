@@ -21,10 +21,12 @@ private:
     std::mutex &mxs;
     bool enoughtreindeer{false};
     bool enoughtelves{false};
-
+    bool readytofly{false};
 public:
     std::condition_variable santaSem;
+    SantaClaus(){
 
+    }
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
     }
 
@@ -34,6 +36,7 @@ public:
     void sleep();
     void set_enoughtreindeer();
     void set_enoughtelves();
+    bool get_readytofly();
 };
 
 #endif

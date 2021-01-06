@@ -17,7 +17,7 @@ using namespace std;
 using namespace rang;
 
 void Reindeer::comeback(){
-    while (readytofly == false && christmas == false){
+    while (sc.get_readytofly() == false){
         unique_lock<std::mutex> ulr{mxr};
         random_device rd;
         mt19937 gen{rd()};
@@ -31,7 +31,7 @@ void Reindeer::comeback(){
             sc.set_enoughtreindeer();
             sc.santaSem.notify_one();
         }
-        if (reindeerSem.wait_for(ulr, 1s, [&] { return readytofly == true; })){
+        if (reindeerSem.wait_for(ulr, 1s, [&] { return sc.get_readytofly() == true; })){
             getHitched();
         }
     }

@@ -17,7 +17,7 @@ using namespace std;
 using namespace rang;
 
 void Elves::tinker(){
-    while (readytofly == false && christmas == false){
+    while (sc.get_readytofly() == false){
         unique_lock<mutex> ulh{mxe};
         random_device rd;
         mt19937 gen{rd()};

@@ -39,7 +39,7 @@ add_global_arguments('-I' + get_option('spdlog_include_dir'), language : 'cpp')
 # subdir('SUBDIR1')
 
 inc_dir = include_directories('include')
-src = ['src/main.cpp']
+src = ['src/main.cpp', 'src/Reindeer.cpp', 'src/Elves.cpp', 'src/SantaClaus.cpp']
 #protobuf: src = ['src/main.cpp', generated]
 
 executable('santa_claus_problem',
