@@ -23,13 +23,10 @@ using namespace std;
 using namespace rang;
 
 
-
-
 bool enoughtreindeer = false;
 bool enoughtelves = false;
 bool readytofly = false;
 bool christmas = false;
-
 
 
 int main(int argc, char *argv[]){

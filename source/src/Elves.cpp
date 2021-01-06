@@ -28,9 +28,9 @@ void Elves::tinker(){
         elves += 1;
         cout << fg::cyan << elves << " Elves need help\n" << flush;
         if (elves == 3){
-            sc->set_enoughtelves();
+            sc.set_enoughtelves();
             cout << "hello elves" << endl;
-            sc->santaSem.notify_one();
+            sc.santaSem.notify_one();
             this_thread::sleep_for(3s);
         }
     }
@@ -54,6 +54,6 @@ int Elves::getElves(){
     return elves;
 }
 
-void Elves::setSanta(SantaClaus* s){
+void Elves::setSanta(SantaClaus& s){
     sc = s;
 }

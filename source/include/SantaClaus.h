@@ -24,8 +24,12 @@ private:
 
 public:
     std::condition_variable santaSem;
-    SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
 
+    SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
+    }
+
+    void operator=(SantaClaus &sa){
+        this->santaSem = sa.santaSem;
     }
     void sleep();
     void set_enoughtreindeer();
