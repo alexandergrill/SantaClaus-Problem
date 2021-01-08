@@ -1,7 +1,7 @@
 # Santa Claus Problem
 <div align="center">
     <br />
-    <img src="./Th_Arbeit/Logo.png" alt="Reservoir Logo" width="350"/>
+    <img src="./documentation/Logo.png" alt="Santa Claus Problem Logo" width="350"/>
 </div>
 
 
