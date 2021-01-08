@@ -1,1 +1,12 @@
 # ninja log v5
+2	799	1610091183165669113	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+1	1500	1610091183869619634	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
+1	1537	1610091183905617104	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
+0	5353	1610091187717371178	santa_claus_problem@exe/src_main.cpp.o	ae2d8b425443d18
+5354	5807	1610091188173343962	santa_claus_problem	89279c55c88c80a6
+3	639	1610091526974381684	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+3	665	1610094131316682218	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+3	1539	1610094132188667682	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
+2	1553	1610094132200667482	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
+2	5340	1610094135988604375	santa_claus_problem@exe/src_main.cpp.o	ae2d8b425443d18
+5340	5583	1610094136236600248	santa_claus_problem	89279c55c88c80a6

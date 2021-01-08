@@ -13,6 +13,8 @@
 #include <mutex>
 #include <condition_variable>
 
+class SantaClaus;
+
 class Reindeer{
 private:
     int reindeer{0};

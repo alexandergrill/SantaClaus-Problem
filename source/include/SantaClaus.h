@@ -14,9 +14,12 @@
 #include <mutex>
 #include <condition_variable>
 
+class Elves;
+class Reindeer;
+
 class SantaClaus{
 private:
-    //Elves &elv;
+    Elves &elv;
     Reindeer &ren;
     std::mutex &mxs;
     bool enoughtreindeer{false};
