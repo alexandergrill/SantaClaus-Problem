@@ -29,9 +29,9 @@ void Elves::tinker(){
         cout << fg::cyan << elves << " Elves need help\n" << flush;
         if (elves == 3){
             sc->set_enoughtelves();
-            cout << "hello elves" << endl;
+            cout << "hello elves " << endl;
             sc->santaSem.notify_one();
-            this_thread::sleep_for(3s);
+            break;
         }
     }
 }
@@ -39,6 +39,7 @@ void Elves::tinker(){
 void Elves::getHelp(){
     while (elves < 0){
         unique_lock<mutex> ulg{mxe};
+        cout << "sasas" << endl;
         random_device rd;
         mt19937 gen{rd()};
         uniform_real_distribution<> dis{0.1, 1.5};

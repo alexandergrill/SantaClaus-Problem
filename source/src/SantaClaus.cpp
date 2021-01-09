@@ -8,23 +8,24 @@
 #include "SantaClaus.h"
 
 #include <mutex>
+#include <iostream>
 
 using namespace std;
 
 
 void SantaClaus::sleep(){
-    while (readytofly == false){
-        unique_lock<mutex> ul{mxs};
-        santaSem.wait(ul, [&]() { return enoughtelves == true || enoughtreindeer == true; });
-        if (ren.getReindeer() == 9){
-            ren.reindeerSem.notify_one();
-            readytofly = true;
-            ren.resetReindeer();
+    mutex m;
+    unique_lock<mutex> ulfg{mxs};
+    santaSem.wait(ulfg, [&]() { return enoughtelves == true || enoughtreindeer == true; });
+    if (ren.getReindeer() == 9){
+        ren.reindeerSem.notify_one();
+        readytofly = true;
+        ren.resetReindeer();
         }
-        if (elv.getElves() == 3){
+    if (elv.getElves() == 3){
             elv.getHelp();
+            cout << "servus santa" << endl;
         }
-    }
 }
 
 void SantaClaus::set_enoughtreindeer(){

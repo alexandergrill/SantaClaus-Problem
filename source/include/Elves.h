@@ -21,6 +21,7 @@ private:
     SantaClaus* sc;
     std::mutex& mxe;
     std::condition_variable elfTex;
+
 public:
     Elves(std::mutex& xe):mxe{xe}{
     }

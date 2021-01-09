@@ -19,8 +19,8 @@ class Reindeer;
 
 class SantaClaus{
 private:
-    Elves &elv;
-    Reindeer &ren;
+    Elves& elv;
+    Reindeer& ren;
     std::mutex &mxs;
     bool enoughtreindeer{false};
     bool enoughtelves{false};
@@ -34,6 +34,7 @@ public:
     void set_enoughtreindeer();
     void set_enoughtelves();
     bool get_readytofly();
+
 };
 
 #endif
