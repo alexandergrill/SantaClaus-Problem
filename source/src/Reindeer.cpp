@@ -28,7 +28,7 @@ void Reindeer::comeback(){
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         if (reindeer == 9){
-            sc->set_enoughtreindeer();
+            sc->set_doaction();
             sc->santaSem.notify_one();
         }
         if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_readytofly() == true; })){

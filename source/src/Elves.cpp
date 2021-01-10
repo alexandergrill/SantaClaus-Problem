@@ -30,22 +30,22 @@ void Elves::tinker(){
             cout << fg::cyan << elves << " Elves need help\n" << flush;
         }
 
-        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytofly() == true; })){
+        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytohelp() == true; })){
             cout << "quetsch" << endl;
             getHelp();
+            return;
         }
-        if(elves == 3){
-            sc->set_enoughtelves();
+        if(elves == 3 && !elves_ready){
+            sc->set_doaction();
             cout << "hello elves " << endl;
             sc->santaSem.notify_one();
-            elves = 0;
+            elves_ready = true;
         }
     }
 }
 
 void Elves::getHelp(){
-    while (elves < 0){
-        unique_lock<mutex> ulg{mxe};
+    while (elves >= 0){
         cout << "sasas" << endl;
         random_device rd;
         mt19937 gen{rd()};
