@@ -13,18 +13,22 @@
 #include <mutex>
 #include <condition_variable>
 
+//forward declaration
 class SantaClaus;
 
+// Renntier Klasse
 class Reindeer{
 private:
-    int reindeer{0};
-    SantaClaus* sc;
-    std::mutex& mxr;
-    std::mutex r;
+//Variablen
+    int reindeer{0};        //Renntiere
+    SantaClaus* sc;         //das dazugehörige SantaClaus Objekt
+    std::mutex& mxr;        //
 public:
     std::condition_variable reindeerSem;
+//Konstruktor
     Reindeer(std::mutex& xr):mxr{xr}{
     }
+//
     void comeback();
     void set_Santa(SantaClaus *s);
     int get_Reindeer();
