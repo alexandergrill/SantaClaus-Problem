@@ -1,4 +1,5 @@
 # ninja log v5
+<<<<<<< HEAD
 2	886	1610300910075975047	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
 1	1582	1610300910771980438	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
 1	1624	1610300910815980779	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
@@ -69,3 +70,29 @@
 2	940	1610305910447692128	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
 2	1336	1610305910843679638	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
 1336	1535	1610305911043673330	santa_claus_problem	89279c55c88c80a6
+=======
+411	606	1610299525925933200	santa_claus_problem	89279c55c88c80a6
+4	3120	1610299403078226000	santa_claus_problem@exe/src_main.cpp.o	ae2d8b425443d18
+5	865	1610299400824397800	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
+6	841	1610299400800442200	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
+3	410	1610299525733838500	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+4	408	1610299574604489700	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+409	610	1610299574803875900	santa_claus_problem	89279c55c88c80a6
+3	414	1610299610801783600	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+416	613	1610299610997726700	santa_claus_problem	89279c55c88c80a6
+3	409	1610299654858719700	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+409	605	1610299655052222100	santa_claus_problem	89279c55c88c80a6
+3	799	1610299782692895500	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
+799	996	1610299782885886200	santa_claus_problem	89279c55c88c80a6
+4	416	1610299832221327400	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+416	613	1610299832415778000	santa_claus_problem	89279c55c88c80a6
+4	409	1610299864660218200	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+409	604	1610299864852715100	santa_claus_problem	89279c55c88c80a6
+3	413	1610299926785397900	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+414	608	1610299926978872300	santa_claus_problem	89279c55c88c80a6
+>>>>>>> 1d0d7524da93c1e24da2a13b690bdc3a17b82960
+2	1221	1610306331746529920	santa_claus_problem@exe/src_SantaClaus.cpp.o	5affdafd8e09cf95
+2	1541	1610306332066519995	santa_claus_problem@exe/src_Elves.cpp.o	e6a43aea75edf0dc
+2	1595	1610306332118518383	santa_claus_problem@exe/src_Reindeer.cpp.o	f42a9580c0a531e4
+1	5525	1610306336046396575	santa_claus_problem@exe/src_main.cpp.o	ae2d8b425443d18
+5525	5717	1610306336242390497	santa_claus_problem	89279c55c88c80a6

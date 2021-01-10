@@ -1,5 +1,6 @@
 {
     "files.associations": {
+<<<<<<< HEAD
         "condition_variable": "cpp",
         "thread": "cpp",
         "array": "cpp",
@@ -56,5 +57,9 @@
         "streambuf": "cpp",
         "typeinfo": "cpp",
         "variant": "cpp"
+=======
+        "iostream": "cpp",
+        "mutex": "cpp"
+>>>>>>> 1d0d7524da93c1e24da2a13b690bdc3a17b82960
     }
 }
