@@ -19,23 +19,26 @@ using namespace rang;
 void Elves::tinker(){
     while (sc->get_readytofly() == false){
         unique_lock<mutex> ulh{mxe};
-        random_device rd;
-        mt19937 gen{rd()};
-        uniform_real_distribution<> dis{0.5, 1.2};
-        double time = dis(gen);
-        int t = time * 1000;
-        this_thread::sleep_for(chrono::milliseconds(t));
-        elves += 1;
-        cout << fg::cyan << elves << " Elves need help\n" << flush;
-        if (elves == 3){
+        if(elves != 3){
+            random_device rd;
+            mt19937 gen{rd()};
+            uniform_real_distribution<> dis{0.5, 1.2};
+            double time = dis(gen);
+            int t = time * 1000;
+            this_thread::sleep_for(chrono::milliseconds(t));
+            elves += 1;
+            cout << fg::cyan << elves << " Elves need help\n" << flush;
+        }
+
+        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytofly() == true; })){
+            cout << "quetsch" << endl;
+            getHelp();
+        }
+        if(elves == 3){
             sc->set_enoughtelves();
             cout << "hello elves " << endl;
             sc->santaSem.notify_one();
-            break;
-        }
-        if (elfTex.wait_for(ulh, 2s, [&] { return sc->get_readytohelp() == true; })){
-            cout << "quetsch" << endl;
-            getHelp();
+            elves = 0;
         }
     }
 }
