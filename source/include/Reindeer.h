@@ -25,11 +25,11 @@ public:
     std::condition_variable reindeerSem;
     Reindeer(std::mutex& xr):mxr{xr}{
     }
-    void setSanta(SantaClaus* s);
     void comeback();
-    int getReindeer();
-    void resetReindeer();
-    void getHitched();
+    void set_Santa(SantaClaus *s);
+    int get_Reindeer();
+    void get_Hitched();
+    void reset_Reindeer();
 };
 
 #endif

@@ -36,8 +36,8 @@ int main(int argc, char *argv[]){
     Elves ev(ref(mx));
     Reindeer rs(ref(mx));
     SantaClaus sc(ev,rs, ref(mx));
-    ev.setSanta(&sc);
-    rs.setSanta(&sc);
+    ev.set_Santa(&sc);
+    rs.set_Santa(&sc);
 
     thread tsanta([&]{sc.sleep();});
     thread treindeers([&]{rs.comeback();});

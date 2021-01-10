@@ -22,5 +22,11 @@
     "command": "c++ -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'santa_claus_problem@exe/src_SantaClaus.cpp.o' -MF 'santa_claus_problem@exe/src_SantaClaus.cpp.o.d' -o 'santa_claus_problem@exe/src_SantaClaus.cpp.o' -c ../src/SantaClaus.cpp",
     "file": "../src/SantaClaus.cpp",
     "output": "santa_claus_problem@exe/src_SantaClaus.cpp.o"
+  },
+  {
+    "directory": "/home/alex/Desktop/grill_project_1/source/build",
+    "command": "c++ -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread -MD -MQ 'santa_claus_problem@exe/src_utils.cpp.o' -MF 'santa_claus_problem@exe/src_utils.cpp.o.d' -o 'santa_claus_problem@exe/src_utils.cpp.o' -c ../src/utils.cpp",
+    "file": "../src/utils.cpp",
+    "output": "santa_claus_problem@exe/src_utils.cpp.o"
   }
 ]

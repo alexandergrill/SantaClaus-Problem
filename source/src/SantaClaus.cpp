@@ -15,19 +15,18 @@
 using namespace std;
 using namespace rang;
 
-
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
     while(true){
         santaSem.wait(ulfg, [&]() { return doaction == true; });
         cout << fg::magenta << "Santa wack up!\n" << flush;
-        if (ren.getReindeer() == 9 && !readytofly){
+        if (ren.get_Reindeer() == 9 && !readytofly){
             readytofly = true;
             ren.reindeerSem.notify_one();
-            ren.resetReindeer();
+            ren.reset_Reindeer();
             doaction = false;
             }
-        if (elv.getElves() == 3 && !readytohelp){
+        if (elv.get_Elves() == 3 && !readytohelp){
             readytohelp = true;
             elv.elfTex.notify_one();
             doaction = false;
@@ -44,4 +43,12 @@ void SantaClaus::set_doaction(){
 
 bool SantaClaus::get_readytofly(){
     return readytofly;
+}
+
+bool SantaClaus::get_readytohelp(){
+    return readytohelp;
+}
+
+void SantaClaus::set_readytohelp(){
+    readytohelp = false;
 }

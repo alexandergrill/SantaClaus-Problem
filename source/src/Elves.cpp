@@ -6,6 +6,7 @@
 */
 
 #include "Elves.h"
+#include "utils.h"
 
 #include "rang.hpp"
 
@@ -20,11 +21,7 @@ void Elves::tinker(){
     while (sc->get_readytofly() == false){
         unique_lock<mutex> ulh{mxe};
         if(elves != 3){
-            random_device rd;
-            mt19937 gen{rd()};
-            uniform_real_distribution<> dis{0.5, 1.0};
-            double time = dis(gen);
-            int t = time * 1000;
+            int t = get_randomnum(0.5, 1.0) * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
             cout << fg::cyan << elves << " Elves need help\n" << flush;
@@ -32,7 +29,7 @@ void Elves::tinker(){
 
         if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytohelp() == true; })){
             if(sc->get_readytofly() == false){
-                getHelp();
+                get_Help();
                 elves = 0;
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
@@ -44,7 +41,7 @@ void Elves::tinker(){
     }
 }
 
-void Elves::getHelp(){
+void Elves::get_Help(){
     while (elves > 0){
         random_device rd;
         mt19937 gen{rd()};
@@ -58,10 +55,10 @@ void Elves::getHelp(){
     sc->set_readytohelp();
 }
 
-int Elves::getElves(){
+int Elves::get_Elves(){
     return elves;
 }
 
-void Elves::setSanta(SantaClaus* s){
+void Elves::set_Santa(SantaClaus* s){
     sc = s;
 }

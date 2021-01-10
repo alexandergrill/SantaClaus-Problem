@@ -27,19 +27,13 @@ private:
     bool readytohelp{false};
 public:
     std::condition_variable santaSem;
-
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
     }
     void sleep();
     void set_doaction();
+    void set_readytohelp();
     bool get_readytofly();
-    bool get_readytohelp(){
-        return readytohelp;
-    }
-    void set_readytohelp(){
-        readytohelp = false;
-    }
-
+    bool get_readytohelp();
 };
 
 #endif
