@@ -14,18 +14,20 @@ using namespace std;
 
 
 void SantaClaus::sleep(){
-    mutex m;
     unique_lock<mutex> ulfg{mxs};
     santaSem.wait(ulfg, [&]() { return enoughtelves == true || enoughtreindeer == true; });
     if (ren.getReindeer() == 9){
-        ren.reindeerSem.notify_one();
         readytofly = true;
+        ren.reindeerSem.notify_one();
         ren.resetReindeer();
         }
     if (elv.getElves() == 3){
-            elv.getHelp();
-            cout << "servus santa" << endl;
-        }
+        readytohelp = true;
+        elv.elfTex.notify_one();
+        cout << "rf" << get_readytofly() << endl;
+        cout << "rh" << get_readytohelp() << endl;
+        cout << "servus santa" << endl;
+    }
 }
 
 void SantaClaus::set_enoughtreindeer(){

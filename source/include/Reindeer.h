@@ -20,7 +20,7 @@ private:
     int reindeer{0};
     SantaClaus* sc;
     std::mutex& mxr;
-    std::mutex xu;
+    std::mutex r;
 public:
     std::condition_variable reindeerSem;
     Reindeer(std::mutex& xr):mxr{xr}{

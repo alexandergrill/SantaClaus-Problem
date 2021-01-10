@@ -25,6 +25,7 @@ private:
     bool enoughtreindeer{false};
     bool enoughtelves{false};
     bool readytofly{false};
+    bool readytohelp{false};
 public:
     std::condition_variable santaSem;
 
@@ -34,6 +35,9 @@ public:
     void set_enoughtreindeer();
     void set_enoughtelves();
     bool get_readytofly();
+    bool get_readytohelp(){
+        return readytohelp;
+    }
 
 };
 

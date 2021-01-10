@@ -20,9 +20,10 @@ private:
     int elves{0};
     SantaClaus* sc;
     std::mutex& mxe;
-    std::condition_variable elfTex;
+   
 
 public:
+    std::condition_variable elfTex;
     Elves(std::mutex& xe):mxe{xe}{
     }
     void setSanta(SantaClaus* s);

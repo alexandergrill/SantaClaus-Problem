@@ -20,8 +20,6 @@
 
 using namespace std;
 
-
-
 int main(int argc, char *argv[]){
     int reendiernum{9};
     int elvesnum{10};
@@ -42,11 +40,11 @@ int main(int argc, char *argv[]){
     rs.setSanta(&sc);
 
     thread tsanta([&]{sc.sleep();});
-    thread treindeers([&]{rs.comeback();});
+    //thread treindeers([&]{rs.comeback();});
     thread telves([&]{ev.tinker();});
 
     tsanta.join(),
-    treindeers.join();
+    //treindeers.join();
     telves.join();
 }
 

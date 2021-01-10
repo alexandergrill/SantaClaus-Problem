@@ -33,6 +33,10 @@ void Elves::tinker(){
             sc->santaSem.notify_one();
             break;
         }
+        if (elfTex.wait_for(ulh, 2s, [&] { return sc->get_readytohelp() == true; })){
+            cout << "quetsch" << endl;
+            getHelp();
+        }
     }
 }
 
@@ -46,7 +50,7 @@ void Elves::getHelp(){
         double time = dis(gen);
         int t = time * 1000;
         this_thread::sleep_for(chrono::milliseconds(t));
-        cout << fg::blue << (elves - 3) * -1 << " elves helped\n"<< flush;
+        cout << fg::cyan << (elves - 3) * -1 << " elves helped\n"<< flush;
         elves -= 1;
     }
 }
