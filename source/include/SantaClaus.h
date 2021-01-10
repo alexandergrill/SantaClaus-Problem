@@ -22,8 +22,7 @@ private:
     Elves& elv;
     Reindeer& ren;
     std::mutex &mxs;
-    bool enoughtreindeer{false};
-    bool enoughtelves{false};
+    bool doaction{false};
     bool readytofly{false};
     bool readytohelp{false};
 public:
@@ -32,11 +31,13 @@ public:
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
     }
     void sleep();
-    void set_enoughtreindeer();
-    void set_enoughtelves();
+    void set_doaction();
     bool get_readytofly();
     bool get_readytohelp(){
         return readytohelp;
+    }
+    void set_readytohelp(){
+        readytohelp = false;
     }
 
 };

@@ -20,7 +20,7 @@ private:
     int elves{0};
     SantaClaus* sc;
     std::mutex& mxe;
-   
+
 
 public:
     std::condition_variable elfTex;

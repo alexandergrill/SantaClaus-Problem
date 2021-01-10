@@ -22,7 +22,7 @@ void Elves::tinker(){
         if(elves != 3){
             random_device rd;
             mt19937 gen{rd()};
-            uniform_real_distribution<> dis{0.5, 1.2};
+            uniform_real_distribution<> dis{0.5, 1.0};
             double time = dis(gen);
             int t = time * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
@@ -30,32 +30,32 @@ void Elves::tinker(){
             cout << fg::cyan << elves << " Elves need help\n" << flush;
         }
 
-        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytofly() == true; })){
-            cout << "quetsch" << endl;
-            getHelp();
-        }
+        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytohelp() == true; })){
+            if(sc->get_readytofly() == false){
+                getHelp();
+                elves = 0;
+                cout << fg::magenta << "Santa go sleep!\n" << flush;
+            }
+       }
         if(elves == 3){
-            sc->set_enoughtelves();
-            cout << "hello elves " << endl;
+            sc->set_doaction();
             sc->santaSem.notify_one();
-            elves = 0;
         }
     }
 }
 
 void Elves::getHelp(){
-    while (elves < 0){
-        unique_lock<mutex> ulg{mxe};
-        cout << "sasas" << endl;
+    while (elves > 0){
         random_device rd;
         mt19937 gen{rd()};
-        uniform_real_distribution<> dis{0.1, 1.5};
+        uniform_real_distribution<> dis{0.1, 0.5};
         double time = dis(gen);
         int t = time * 1000;
         this_thread::sleep_for(chrono::milliseconds(t));
-        cout << fg::cyan << (elves - 3) * -1 << " elves helped\n"<< flush;
+        cout << fg::cyan << (elves - 4) * -1 << " elves helped\n"<< flush;
         elves -= 1;
     }
+    sc->set_readytohelp();
 }
 
 int Elves::getElves(){
