@@ -10,6 +10,9 @@
 #include "SantaClaus.h"
 #include "utils.h"
 
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
+
 #include "rang.hpp"
 #include "CLI11.hpp"
 
@@ -34,6 +37,9 @@ int main(int argc, char *argv[]){
     app.add_option("-t,--t", time, "number of hours until christmas");
     CLI11_PARSE(app, argc, argv);
 
+    auto console = spdlog::stderr_color_mt("console");
+    console->set_level(spdlog::level::trace);
+
     mutex mx;
 
     Elves ev(ref(mx));
@@ -47,9 +53,10 @@ int main(int argc, char *argv[]){
     thread treindeers([&]{rs.comeback();});
     thread telves([&]{ev.tinker();});
 
+    telves.join();
     tsanta.join(),
     treindeers.join();
-    telves.join();
+
 
     if (christmas == true){
         cout << fg::red << "Christmas is over!\n" << flush;

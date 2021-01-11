@@ -7,6 +7,8 @@
 
 #include "SantaClaus.h"
 #include "utils.h"
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 #include "rang.hpp"
 
@@ -19,10 +21,14 @@ using namespace rang;
 
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
-    while (christmas == false){
+    while (true){
+        spdlog::get("console")->info("Encoding successfull Santa");
+        if (readytofly || christmas)
+        {
+            return;
+        }
         santaSem.wait(ulfg, [&]() { return doaction == true; });
         cout << fg::magenta << "Santa wack up!\n" << flush;
-        cout << "chreis" << christmas << endl;
         if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly)
         {
             readytofly = true;
@@ -36,9 +42,7 @@ void SantaClaus::sleep(){
             elv.elfTex.notify_one();
             doaction = false;
         }
-        if(readytofly || christmas){
-            return;
-        }
+
     }
 }
 

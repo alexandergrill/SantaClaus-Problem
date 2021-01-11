@@ -7,6 +7,8 @@
 
 #include "Reindeer.h"
 #include "utils.h"
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 #include "rang.hpp"
 
@@ -18,8 +20,13 @@ using namespace rang;
 
 
 void Reindeer::comeback(){
-    while (sc->get_readytofly() == false && christmas == false){
-        unique_lock<std::mutex> ulr{mxr};
+    unique_lock<std::mutex> ulr{mxr};
+    while (sc->get_readytofly() == false){
+        spdlog::get("console")->info("Encoding successfull Renntier");
+        if (christmas)
+        {
+            return;
+        }
         int t = get_randomnum(0.5, 1.5) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
@@ -31,9 +38,7 @@ void Reindeer::comeback(){
         if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_readytofly() == true; })){
             get_Hitched();
         }
-        if(christmas){
-            return;
-        }
+
     }
 }
 

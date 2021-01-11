@@ -7,6 +7,8 @@
 
 #include "Elves.h"
 #include "utils.h"
+#include "spdlog/spdlog.h"
+#include "spdlog/sinks/stdout_color_sinks.h"
 
 #include "rang.hpp"
 
@@ -20,9 +22,14 @@ using namespace rang;
 
 
 void Elves::tinker(){
-    while (sc->get_readytofly() == false && christmas == false){
-        unique_lock<mutex> ulh{mxe};
-        cout << "chreis" << christmas << endl;
+    unique_lock<mutex> ulh{mxe};
+    while (sc->get_readytofly() == false){
+        spdlog::get("console")->info("Encoding successfull Elves");
+        if (christmas)
+        {
+            return;
+        }
+
         if (elves != 3)
         {
             int t = get_randomnum(0.5, 1.0) * 1000;
@@ -43,9 +50,7 @@ void Elves::tinker(){
            sc->set_doaction();
            sc->santaSem.notify_one();
        }
-       if(christmas){
-           return;
-       }
+
     }
 }
 

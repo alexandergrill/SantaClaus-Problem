@@ -38,23 +38,23 @@ build PHONY: phony
 
 build santa_claus_problem@exe/src_main.cpp.o: cpp_COMPILER ../src/main.cpp
  DEPFILE = santa_claus_problem@exe/src_main.cpp.o.d
- ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+ ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I/home/alex/spdlog-1.8.2/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
 build santa_claus_problem@exe/src_Reindeer.cpp.o: cpp_COMPILER ../src/Reindeer.cpp
  DEPFILE = santa_claus_problem@exe/src_Reindeer.cpp.o.d
- ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+ ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I/home/alex/spdlog-1.8.2/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
 build santa_claus_problem@exe/src_Elves.cpp.o: cpp_COMPILER ../src/Elves.cpp
  DEPFILE = santa_claus_problem@exe/src_Elves.cpp.o.d
- ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+ ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I/home/alex/spdlog-1.8.2/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
 build santa_claus_problem@exe/src_SantaClaus.cpp.o: cpp_COMPILER ../src/SantaClaus.cpp
  DEPFILE = santa_claus_problem@exe/src_SantaClaus.cpp.o.d
- ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+ ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I/home/alex/spdlog-1.8.2/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
 build santa_claus_problem@exe/src_utils.cpp.o: cpp_COMPILER ../src/utils.cpp
  DEPFILE = santa_claus_problem@exe/src_utils.cpp.o.d
- ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
+ ARGS = -Isanta_claus_problem@exe -I. -I.. -I../include -I -I -I/home/alex/spdlog-1.8.2/include -fdiagnostics-color=always -pipe -D_FILE_OFFSET_BITS=64 -Wall -Winvalid-pch -Wnon-virtual-dtor -Wextra -Wpedantic -Werror -std=c++17 -g -DASIO_STANDALONE -DASIO_NO_DEPRECATED -pthread
 
 build santa_claus_problem: cpp_LINKER santa_claus_problem@exe/src_main.cpp.o santa_claus_problem@exe/src_Reindeer.cpp.o santa_claus_problem@exe/src_Elves.cpp.o santa_claus_problem@exe/src_SantaClaus.cpp.o santa_claus_problem@exe/src_utils.cpp.o
  LINK_ARGS = -Wl,--as-needed -Wl,--no-undefined -pthread
