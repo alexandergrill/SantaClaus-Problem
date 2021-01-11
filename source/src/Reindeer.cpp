@@ -28,7 +28,7 @@ void Reindeer::comeback(){
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         spdlog::get("console")->info("A Reindeer is back");
-        if (reindeer == maxreindeer){
+        if (reindeer == maxreindeer && christmas == true){
             sc->set_doaction();
             sc->santaSem.notify_one();
         }
@@ -36,7 +36,11 @@ void Reindeer::comeback(){
             get_Hitched();
         }
     }
-
+    if (christmas == true)
+    {
+        sc->set_doaction();
+        sc->santaSem.notify_one();
+    }
 }
 
 int Reindeer::get_Reindeer(){

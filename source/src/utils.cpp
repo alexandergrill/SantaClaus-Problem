@@ -35,8 +35,8 @@ void to_christmas(int hours){
     christmas = true;
 }
 
-void write_intoJSON(SantaClaus &sc, Elves &ev, Reindeer &rn, std::string json_file){
+/*void write_intoJSON(SantaClaus &sc, Elves &ev, Reindeer &rn, std::string json_file){
     json santa;
     json elves;
     json renndeer;
-}
+}*/

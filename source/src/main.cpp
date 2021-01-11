@@ -48,7 +48,7 @@ int main(int argc, char *argv[]){
     ev.set_Santa(&sc);
     rs.set_Santa(&sc);
 
-    thread(to_christmas, time).detach();
+    thread (to_christmas, time).detach();
     thread tsanta([&]{sc.sleep();});
     thread treindeers([&]{rs.comeback();});
     thread telves([&]{ev.tinker();});

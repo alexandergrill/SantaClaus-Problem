@@ -22,15 +22,14 @@ using namespace rang;
 
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
-    while (true){
-        if (readytofly || christmas){
-            return;
-        }
+    while (readytofly == false){
         santaSem.wait(ulfg, [&]() { return doaction == true; });
         auto t1 = chrono::high_resolution_clock::now();
+        if(christmas == true){
+            return;
+        }
         cout << fg::magenta << "Santa wack up!\n" << flush;
-        if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly)
-        {
+        if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly){
             readytofly = true;
             ren.reindeerSem.notify_one();
             ren.reset_Reindeer();
