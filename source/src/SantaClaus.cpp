@@ -16,23 +16,27 @@
 using namespace std;
 using namespace rang;
 
+
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
-    while(christmas == false){
+    while (christmas == false){
         santaSem.wait(ulfg, [&]() { return doaction == true; });
         cout << fg::magenta << "Santa wack up!\n" << flush;
-        if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly){
+        cout << "chreis" << christmas << endl;
+        if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly)
+        {
             readytofly = true;
             ren.reindeerSem.notify_one();
             ren.reset_Reindeer();
             doaction = false;
-            }
-        if (elv.get_Elves() == 3 && !readytohelp){
+        }
+        if (elv.get_Elves() == 3 && !readytohelp && christmas == false)
+        {
             readytohelp = true;
             elv.elfTex.notify_one();
             doaction = false;
         }
-        if(readytofly){
+        if(readytofly || christmas){
             return;
         }
     }

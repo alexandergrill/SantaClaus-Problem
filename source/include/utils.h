@@ -8,10 +8,9 @@
 #ifndef UTILS_H
 #define UTILS_H
 
-bool christmas{false};
+extern bool christmas;
 
 double get_randomnum(double start, double end);
 void to_christmas(int hours);
-bool get_christmas();
 
 #endif

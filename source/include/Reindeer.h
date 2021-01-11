@@ -23,13 +23,14 @@ private:
     int reindeer{0};        //Renntiere
     int maxreindeer;        //Renntiere die benötigt werden um Santa zu wecken
     SantaClaus* sc;         //das dazugehörige SantaClaus Objekt
-    std::mutex& mxr;        //
+    std::mutex& mxr;        //Mutsex Objekt
 public:
+//Condition Variable
     std::condition_variable reindeerSem;
 //Konstruktor
     Reindeer(int rmax, std::mutex& xr):maxreindeer{rmax}, mxr{xr}{
     }
-//
+//Methoden
     void comeback();
     int get_Reindeer();
     int get_MaxReindeer();

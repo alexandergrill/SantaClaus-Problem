@@ -17,10 +17,14 @@
 using namespace std;
 using namespace rang;
 
+
+
 void Elves::tinker(){
     while (sc->get_readytofly() == false && christmas == false){
         unique_lock<mutex> ulh{mxe};
-        if(elves != 3){
+        cout << "chreis" << christmas << endl;
+        if (elves != 3)
+        {
             int t = get_randomnum(0.5, 1.0) * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
@@ -34,10 +38,14 @@ void Elves::tinker(){
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
        }
-        if(elves == 3){
-            sc->set_doaction();
-            sc->santaSem.notify_one();
-        }
+       if (elves == 3 && christmas == false)
+       {
+           sc->set_doaction();
+           sc->santaSem.notify_one();
+       }
+       if(christmas){
+           return;
+       }
     }
 }
 

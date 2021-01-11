@@ -22,14 +22,9 @@ double get_randomnum(double start, double end){
 }
 
 void to_christmas(int hours){
+    christmas = false;
     for (int i = 0; i < hours; i++){
         sleep(1);
     }
     christmas = true;
-    cout << fg::red << "It is Christmas !" << endl;
-}
-
-bool get_christmas()
-{
-    return christmas;
 }

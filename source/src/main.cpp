@@ -19,7 +19,9 @@
 #include <mutex>
 
 using namespace std;
+using namespace rang;
 
+bool christmas;
 
 int main(int argc, char *argv[]){
     int reendiernum{9};
@@ -45,11 +47,13 @@ int main(int argc, char *argv[]){
     thread treindeers([&]{rs.comeback();});
     thread telves([&]{ev.tinker();});
 
-
-
     tsanta.join(),
     treindeers.join();
     telves.join();
+
+    if (christmas == true){
+        cout << fg::red << "Christmas is over!\n" << flush;
+    }
 }
 
 
