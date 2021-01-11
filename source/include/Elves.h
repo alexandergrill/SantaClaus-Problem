@@ -18,16 +18,18 @@ class SantaClaus;
 class Elves{
 private:
     int elves{0};
+    int elvessum{0};
     SantaClaus* sc;
     std::mutex& mxe;
 public:
     std::condition_variable elfTex;
     Elves(std::mutex& xe):mxe{xe}{
     }
-    void tinker();
-    void set_Santa(SantaClaus *s);
     void get_Help();
     int get_Elves();
+    int get_SumElves();
+    void set_Santa(SantaClaus *s);
+    void tinker();
 };
 
 #endif

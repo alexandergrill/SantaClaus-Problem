@@ -9,6 +9,7 @@
 #include "rang.hpp"
 
 #include <random>
+//#include <json.h>
 
 using namespace std;
 using namespace rang;
@@ -24,7 +25,15 @@ double get_randomnum(double start, double end){
 void to_christmas(int hours){
     christmas = false;
     for (int i = 0; i < hours; i++){
-        sleep(1);
+        sleep(1.1);
     }
+    cout << "Hello" << endl;
     christmas = true;
 }
+
+/*void write_intoJSON(SantaClaus *sc, Elves *ev, Renntier *rn, std::string json_file){
+    json santa;
+    json elves;
+    json renndeer;
+
+}*/

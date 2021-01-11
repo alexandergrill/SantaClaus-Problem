@@ -23,21 +23,15 @@ using namespace rang;
 
 void Elves::tinker(){
     unique_lock<mutex> ulh{mxe};
-    while (sc->get_readytofly() == false){
-        spdlog::get("console")->info("Encoding successfull Elves");
-        if (christmas)
-        {
-            return;
-        }
-
-        if (elves != 3)
-        {
+    while (sc->get_readytofly() == false && christmas == false){
+        if (elves != 3){
             int t = get_randomnum(0.5, 1.0) * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
+            elvessum += 1;
             cout << fg::cyan << elves << " Elves need help\n" << flush;
+            spdlog::get("console")->info("A Elve is waiting for Santa´s Help");
         }
-
         if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytohelp() == true; })){
             if(sc->get_readytofly() == false){
                 get_Help();
@@ -45,12 +39,10 @@ void Elves::tinker(){
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
        }
-       if (elves == 3 && christmas == false)
-       {
+       if (elves == 3 && christmas == false){
            sc->set_doaction();
            sc->santaSem.notify_one();
        }
-
     }
 }
 
@@ -66,6 +58,10 @@ void Elves::get_Help(){
         elves -= 1;
     }
     sc->set_readytohelp();
+}
+
+int Elves::get_SumElves(){
+    return elvessum;
 }
 
 int Elves::get_Elves(){

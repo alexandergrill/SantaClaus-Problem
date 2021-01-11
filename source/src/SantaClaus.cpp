@@ -14,6 +14,7 @@
 
 #include <mutex>
 #include <iostream>
+#include <chrono>
 
 using namespace std;
 using namespace rang;
@@ -22,12 +23,11 @@ using namespace rang;
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
     while (true){
-        spdlog::get("console")->info("Encoding successfull Santa");
-        if (readytofly || christmas)
-        {
+        if (readytofly || christmas){
             return;
         }
         santaSem.wait(ulfg, [&]() { return doaction == true; });
+        auto t1 = chrono::high_resolution_clock::now();
         cout << fg::magenta << "Santa wack up!\n" << flush;
         if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly)
         {
@@ -42,7 +42,9 @@ void SantaClaus::sleep(){
             elv.elfTex.notify_one();
             doaction = false;
         }
-
+        auto t2 = chrono::high_resolution_clock::now();
+        auto int_s = chrono::duration_cast<chrono::seconds>(t2 -t1);
+        blithelytime += int_s.count();
     }
 }
 

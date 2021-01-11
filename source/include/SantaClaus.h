@@ -21,6 +21,7 @@ class Reindeer;
 
 class SantaClaus{
 private:
+    int blithelytime{0};
     Elves& elv;
     Reindeer& ren;
     std::mutex &mxs;

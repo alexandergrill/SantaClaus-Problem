@@ -21,16 +21,13 @@ using namespace rang;
 
 void Reindeer::comeback(){
     unique_lock<std::mutex> ulr{mxr};
-    while (sc->get_readytofly() == false){
-        spdlog::get("console")->info("Encoding successfull Renntier");
-        if (christmas)
-        {
-            return;
-        }
+    while (christmas == false && sc->get_readytofly() == false)
+    {
         int t = get_randomnum(0.5, 1.5) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
+        spdlog::get("console")->info("A Reindeer is back");
         if (reindeer == maxreindeer){
             sc->set_doaction();
             sc->santaSem.notify_one();
@@ -38,8 +35,8 @@ void Reindeer::comeback(){
         if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_readytofly() == true; })){
             get_Hitched();
         }
-
     }
+
 }
 
 int Reindeer::get_Reindeer(){
