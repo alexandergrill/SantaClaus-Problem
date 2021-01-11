@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "SantaClaus.h"
 #include "utils.h"
 #include "spdlog/spdlog.h"
@@ -16,10 +17,18 @@
 #include <iostream>
 #include <chrono>
 
+//namespaces
 using namespace std;
 using namespace rang;
 
+//Methoden Definitionen
 
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
     while (readytofly == false){
@@ -47,18 +56,42 @@ void SantaClaus::sleep(){
     }
 }
 
-void SantaClaus::set_doaction(){
-    doaction = true;
-}
-
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 bool SantaClaus::get_readytofly(){
     return readytofly;
 }
 
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 bool SantaClaus::get_readytohelp(){
     return readytohelp;
 }
 
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 void SantaClaus::set_readytohelp(){
     readytohelp = false;
+}
+
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
+void SantaClaus::set_doaction(){
+    doaction = true;
 }

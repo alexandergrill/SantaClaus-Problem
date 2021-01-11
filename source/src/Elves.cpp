@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "Elves.h"
 #include "utils.h"
 #include "spdlog/spdlog.h"
@@ -16,11 +17,18 @@
 #include <random>
 #include <iostream>
 
+//namespaces
 using namespace std;
 using namespace rang;
 
+//Methoden Definitionen
 
-
+/*
+-Name: void tinker
+-Beschreibung: Arbeitsablauf der Elfen, Santa wird geweckt wenn Elfen in benötigen
+-Input: 
+-Output:        
+*/
 void Elves::tinker(){
     unique_lock<mutex> ulh{mxe};
     while (sc->get_readytofly() == false && christmas == false){
@@ -46,8 +54,15 @@ void Elves::tinker(){
     }
 }
 
+/*
+-Name: void get_Help
+-Beschreibung: Santa Claus hilft jeden einzelnen Elfen
+-Input:
+-Output:        
+*/
 void Elves::get_Help(){
     while (elves > 0){
+        //doppelter Code Alex!
         random_device rd;
         mt19937 gen{rd()};
         uniform_real_distribution<> dis{0.1, 0.5};
@@ -60,14 +75,32 @@ void Elves::get_Help(){
     sc->set_readytohelp();
 }
 
-int Elves::get_SumElves(){
-    return elvessum;
-}
-
+/*
+-Name: int get_Elves
+-Beschreibung: gibt die Anzahl der Elfen zurück, die Hilfe brauchen
+-Input:
+-Output: int elves     
+*/
 int Elves::get_Elves(){
     return elves;
 }
 
+/*
+-Name: int get_SumElves
+-Beschreibung: gibt die Summe der Elfen zurück, die Hilfe brauchten
+-Input:
+-Output: int elvessum    
+*/
+int Elves::get_SumElves(){
+    return elvessum;
+}
+
+/*
+-Name: void set_Santa
+-Beschreibung: setzt den Verweis, auf das jeweilige SantaClaus Objekt
+-Input: SantaClaus* s
+-Output:        
+*/
 void Elves::set_Santa(SantaClaus* s){
     sc = s;
 }

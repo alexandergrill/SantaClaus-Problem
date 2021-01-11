@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "Reindeer.h"
 #include "utils.h"
 #include "spdlog/spdlog.h"
@@ -15,10 +16,18 @@
 #include <thread>
 #include <iostream>
 
+//namespaces
 using namespace std;
 using namespace rang;
 
+//Methoden Definitionen
 
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 void Reindeer::comeback(){
     unique_lock<std::mutex> ulr{mxr};
     while (christmas == false && sc->get_readytofly() == false)
@@ -43,24 +52,55 @@ void Reindeer::comeback(){
     }
 }
 
-int Reindeer::get_Reindeer(){
-    return reindeer;
-}
-
-void Reindeer::reset_Reindeer(){
-    reindeer = 0;
-}
-
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 void Reindeer::get_Hitched(){
     cout << fg::yellow << "Reindeers are hichted by Santa\n" << flush;
     this_thread::sleep_for(3s);
     cout << fg::green << "Santa we can fly\n" << flush;
     cout << fg::green << "Merry Christmas Ho Ho Ho\n" << flush;
 }
+
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
+int Reindeer::get_Reindeer(){
+    return reindeer;
+}
+
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
+int Reindeer::get_MaxReindeer(){
+    return maxreindeer;
+}
+
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
 void Reindeer::set_Santa(SantaClaus* s){
     sc = s;
 }
 
-int Reindeer::get_MaxReindeer(){
-    return maxreindeer;
+/*
+-Name:
+-Beschreibung:
+-Input: 
+-Output:        
+*/
+void Reindeer::reset_Reindeer(){
+    reindeer = 0;
 }

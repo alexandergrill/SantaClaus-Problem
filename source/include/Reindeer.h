@@ -8,6 +8,7 @@
 #ifndef REINDEER_H
 #define REINDEER_H
 
+//includes
 #include "SantaClaus.h"
 
 #include <mutex>
@@ -16,14 +17,14 @@
 //forward declaration
 class SantaClaus;
 
-// Renntier Klasse
+//Klasse Renntiere
 class Reindeer{
 private:
 //Variablen
     int reindeer{0};        //Renntiere
     int maxreindeer;        //Renntiere die benötigt werden um Santa zu wecken
-    SantaClaus* sc;         //das dazugehörige SantaClaus Objekt
-    std::mutex& mxr;        //Mutsex Objekt
+    std::mutex& mxr;        //Mutex Objekt
+     SantaClaus* sc;         //Verweis auf das dazugehörige SantaClaus Objekt
 public:
 //Condition Variable
     std::condition_variable reindeerSem;
@@ -32,11 +33,12 @@ public:
     }
 //Methoden
     void comeback();
+    void get_Hitched();
     int get_Reindeer();
     int get_MaxReindeer();
-    void get_Hitched();
     void set_Santa(SantaClaus *s);
     void reset_Reindeer();
+
 };
 
 #endif

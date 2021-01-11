@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "Reindeer.h"
 #include "Elves.h"
 #include "SantaClaus.h"
@@ -21,16 +22,20 @@
 #include <thread>
 #include <mutex>
 
+
+//namespaces
 using namespace std;
 using namespace rang;
 
+//bool Variable, -> fehlt!
 bool christmas;
 
 int main(int argc, char *argv[]){
-    int reendiernum{9};
+    int reendiernum{9};                     //maximale Zahl der Renntier, um Santa zu wecken
     int elvesnum{10};
-    int time{24};
+    int time{24};                           //Anzahl der Stunden bis zu Christmas
 
+//Kommandozeilenparameter
     CLI::App app("Santa Claus Problem");
     app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly");
     app.add_option("-e,--e", elvesnum, "number of elves, that work in the factory");
@@ -40,24 +45,25 @@ int main(int argc, char *argv[]){
     auto console = spdlog::stderr_color_mt("console");
     console->set_level(spdlog::level::trace);
 
-    mutex mx;
+    mutex mx;                               //Mutex Objekt
 
-    Elves ev(ref(mx));
-    Reindeer rs(reendiernum, ref(mx));
-    SantaClaus sc(ev,rs, ref(mx));
+    Elves ev(ref(mx));                      //Objekt Elven
+    Reindeer rs(reendiernum, ref(mx));      //Objekt Renntier
+    SantaClaus sc(ev,rs, ref(mx));          //Objekt SantaClaus
     ev.set_Santa(&sc);
     rs.set_Santa(&sc);
 
-    thread (to_christmas, time).detach();
-    thread tsanta([&]{sc.sleep();});
-    thread treindeers([&]{rs.comeback();});
-    thread telves([&]{ev.tinker();});
+    thread (to_christmas, time).detach();   //Thread to_christmas
+    thread tsanta([&]{sc.sleep();});        //Thread santa sleep
+    thread treindeer([&]{rs.comeback();});  //Thread reindeer comebock
+    thread telves([&]{ev.tinker();});       //Thread elves tinker
 
-    telves.join();
+//zum Schluss werden alle Threads gejoint
+    telves.join();                           
     tsanta.join(),
-    treindeers.join();
+    treindeer.join();
 
-
+//Ausgabe wenn Christmas vorüber ist
     if (christmas == true){
         cout << fg::red << "Christmas is over!\n" << flush;
     }

@@ -8,35 +8,46 @@
 #ifndef SANTACLAUS_H
 #define SANTACLAUS_H
 
+//includes
 #include "Reindeer.h"
 #include "Elves.h"
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
+
 #include <mutex>
 #include <condition_variable>
 
+//forward declaration
 class Elves;
 class Reindeer;
 
+//Klasse SantaClaus
 class SantaClaus{
 private:
-    int blithelytime{0};
-    Elves& elv;
-    Reindeer& ren;
-    std::mutex &mxs;
-    bool doaction{false};
-    bool readytofly{false};
-    bool readytohelp{false};
+//Variablen
+    int blithelytime{0};        //gesamte Schlafzeit
+    bool doaction{false};       //bool Variable, für santaSem.wait
+    bool readytofly{false};     //bool Variable, für ren.reindeerSem.notify_one       
+    bool readytohelp{false};    //bool Variable, für elv.elfTex.notify_one
+    std::mutex &mxs;            //Mutex Obekt 
+    Elves& elv;                 //Verweis auf das dazugehörige Elven Objekt
+    Reindeer& ren;              //Verweis auf das dazugehörige Renntier Objekt 
 public:
+//Condition Variable
     std::condition_variable santaSem;
+//Konstruktor
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
     }
+//Methoden
+//
+//Methoden alle klein Schreiben!!!!!
+//
     void sleep();
-    void set_doaction();
-    void set_readytohelp();
     bool get_readytofly();
-    bool get_readytohelp();
+    bool get_readytohelp();    
+    void set_readytohelp();
+    void set_doaction();
 };
 
 #endif
