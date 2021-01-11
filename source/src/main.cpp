@@ -8,6 +8,7 @@
 #include "Reindeer.h"
 #include "Elves.h"
 #include "SantaClaus.h"
+#include "utils.h"
 
 #include "rang.hpp"
 #include "CLI11.hpp"
@@ -17,8 +18,8 @@
 #include <thread>
 #include <mutex>
 
-
 using namespace std;
+
 
 int main(int argc, char *argv[]){
     int reendiernum{9};
@@ -34,14 +35,17 @@ int main(int argc, char *argv[]){
     mutex mx;
 
     Elves ev(ref(mx));
-    Reindeer rs(ref(mx));
+    Reindeer rs(reendiernum, ref(mx));
     SantaClaus sc(ev,rs, ref(mx));
     ev.set_Santa(&sc);
     rs.set_Santa(&sc);
 
+    thread(to_christmas, time).detach();
     thread tsanta([&]{sc.sleep();});
     thread treindeers([&]{rs.comeback();});
     thread telves([&]{ev.tinker();});
+
+
 
     tsanta.join(),
     treindeers.join();

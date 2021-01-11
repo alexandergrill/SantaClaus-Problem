@@ -18,7 +18,7 @@ using namespace std;
 using namespace rang;
 
 void Elves::tinker(){
-    while (sc->get_readytofly() == false){
+    while (sc->get_readytofly() == false && christmas == false){
         unique_lock<mutex> ulh{mxe};
         if(elves != 3){
             int t = get_randomnum(0.5, 1.0) * 1000;

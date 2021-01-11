@@ -17,13 +17,13 @@ using namespace std;
 using namespace rang;
 
 void Reindeer::comeback(){
-    while (sc->get_readytofly() == false){
+    while (sc->get_readytofly() == false && christmas == false){
         unique_lock<std::mutex> ulr{mxr};
         int t = get_randomnum(0.5, 1.5) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
-        if (reindeer == 9){
+        if (reindeer == maxreindeer){
             sc->set_doaction();
             sc->santaSem.notify_one();
         }
@@ -49,4 +49,8 @@ void Reindeer::get_Hitched(){
 }
 void Reindeer::set_Santa(SantaClaus* s){
     sc = s;
+}
+
+int Reindeer::get_MaxReindeer(){
+    return maxreindeer;
 }

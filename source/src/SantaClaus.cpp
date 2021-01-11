@@ -6,6 +6,7 @@
 */
 
 #include "SantaClaus.h"
+#include "utils.h"
 
 #include "rang.hpp"
 
@@ -17,10 +18,10 @@ using namespace rang;
 
 void SantaClaus::sleep(){
     unique_lock<mutex> ulfg{mxs};
-    while(true){
+    while(christmas == false){
         santaSem.wait(ulfg, [&]() { return doaction == true; });
         cout << fg::magenta << "Santa wack up!\n" << flush;
-        if (ren.get_Reindeer() == 9 && !readytofly){
+        if (ren.get_Reindeer() == ren.get_MaxReindeer() && !readytofly){
             readytofly = true;
             ren.reindeerSem.notify_one();
             ren.reset_Reindeer();
