@@ -6,13 +6,18 @@
 */
 
 #include "utils.h"
+
+
 #include "rang.hpp"
+#include "json.hpp"
 
 #include <random>
-//#include <json.h>
+#include <iostream>
 
 using namespace std;
 using namespace rang;
+
+using json = nlohmann::json;
 
 double get_randomnum(double start, double end){
     random_device rd;
@@ -27,13 +32,11 @@ void to_christmas(int hours){
     for (int i = 0; i < hours; i++){
         sleep(1.1);
     }
-    cout << "Hello" << endl;
     christmas = true;
 }
 
-/*void write_intoJSON(SantaClaus *sc, Elves *ev, Renntier *rn, std::string json_file){
+void write_intoJSON(SantaClaus &sc, Elves &ev, Reindeer &rn, std::string json_file){
     json santa;
     json elves;
     json renndeer;
-
-}*/
+}
