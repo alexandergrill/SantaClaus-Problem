@@ -11,7 +11,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-#include "rang.hpp"
+#include <rang/rang.hpp>
 
 #include <thread>
 #include <iostream>

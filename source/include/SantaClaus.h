@@ -29,7 +29,7 @@ private:
     Elves &elv;                 //Verweis auf das dazugehörige Elven Objekt
     Reindeer &ren;              //Verweis auf das dazugehörige Renntier Objekt
     std::mutex &mxs;            //Mutex Obekt
-    int blithelytime{0};        //gesamte Schlafzeit
+    double blithelytime{0};     //gesamte Schlafzeit
     bool doaction{false};       //bool Variable, für santaSem.wait
     bool readytofly{false};     //bool Variable, für ren.reindeerSem.notify_one       
     bool readytohelp{false};    //bool Variable, für elv.elfTex.notify_one
@@ -41,8 +41,10 @@ public:
     }
 //Methoden
     void sleep();
+    int get_Blithelytime();
     bool get_Readytofly();
-    bool get_Readytohelp();    
+    bool get_Readytohelp();
+    void set_Blithelytime(double t);
     void set_Readytohelp();
     void set_Doaction();
 };

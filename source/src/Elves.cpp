@@ -11,7 +11,7 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-#include "rang.hpp"
+#include <rang/rang.hpp>
 
 #include <thread>
 #include <random>
@@ -61,12 +61,15 @@ void Elves::tinker(){
 -Output:        
 */
 void Elves::get_Help(){
+    double totaltime{0.00};
     while (elves > 0){
-        int t = get_RandomNum(0.1, 0.5) * 1000;
+        int t = get_RandomNum(0.5, 1.0) * 1000;
+        totaltime += t / 1000.0;
         this_thread::sleep_for(chrono::milliseconds(t));
         cout << fg::cyan << (elves - (maxelves + 1)) * -1 << " elves helped\n"<< flush;
         elves -= 1;
     }
+    sc->set_Blithelytime(totaltime);
     sc->set_Readytohelp();
 }
 

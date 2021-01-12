@@ -14,10 +14,9 @@
 #include "spdlog/spdlog.h"
 #include "spdlog/sinks/stdout_color_sinks.h"
 
-#include "rang.hpp"
-#include "CLI11.hpp"
+#include <rang/rang.hpp>
+#include <CLI11/CLI11.hpp>
 
-//#include "tabulate.hpp"
 
 #include <thread>
 #include <mutex>
@@ -27,52 +26,48 @@
 using namespace std;
 using namespace rang;
 
-//bool Variable, -> fehlt!
+
+//Variable
 bool christmas;
 
 int main(int argc, char *argv[]){
     int reendiernum{9};                     //maximale Zahl der Renntier, um Santa zu wecken
     int elvesnum{3};                        //maximale Zahl der Elven, um Santa zu wecken
     int time{24};                           //Anzahl der Stunden bis zu Christmas
-
+    string jsonfilepath;
+    bool display_table{false};
 //Kommandozeilenparameter
     CLI::App app("Santa Claus Problem");
     app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly")->check([](const string &str) {
         auto check = str.find_first_not_of("0123456789");
-        if (check == string::npos)
-        {
+        if (check == string::npos){
             return string();
         }
-        else
-        {
+        else{
             return string(str + " contains not numeric character");
         }
     });
-    ;
     app.add_option("-e,--e", elvesnum, "number of elves, that work in the factory")->check([](const string &str) {
         auto check = str.find_first_not_of("0123456789");
-        if (check == string::npos)
-        {
+        if (check == string::npos){
             return string();
         }
-        else
-        {
+        else{
             return string(str + " contains not numeric character");
         }
     });
-    ;
     app.add_option("-t,--t", time, "number of hours until christmas")->check([](const string &str) {
         auto check = str.find_first_not_of("0123456789");
-        if (check == string::npos)
-        {
+        if (check == string::npos){
             return string();
         }
-        else
-        {
+        else{
             return string(str + " contains not numeric character");
         }
     });
     ;
+    app.add_option("-j,--j", jsonfilepath, "write santa, reindeer, elves details in json File")->check(CLI::ExistingFile);
+    app.add_flag("-d,--d", display_table, "show you a table about the Objects Santa, Elves, Reindeer");
     CLI11_PARSE(app, argc, argv);
 
     auto console = spdlog::stderr_color_mt("console");
@@ -80,7 +75,7 @@ int main(int argc, char *argv[]){
 
     mutex mx;                               //Mutex Objekt
 
-    Elves ev(elvesnum, ref(mx));                      //Objekt Elven
+    Elves ev(elvesnum, ref(mx));             //Objekt Elven
     Reindeer rs(reendiernum, ref(mx));      //Objekt Renntier
     SantaClaus sc(ev,rs, ref(mx));          //Objekt SantaClaus
     ev.set_Santa(&sc);
@@ -95,11 +90,24 @@ int main(int argc, char *argv[]){
     telves.join();                           
     tsanta.join(),
     treindeer.join();
-
-//Ausgabe wenn Christmas vorüber ist
-    if (christmas == true){
-        cerr << fg::red << "Christmas is over!\n" << flush;
+    if (christmas)
+    {
+        cerr << fg::red << "Christmas is over!\n"
+             << flush;
         spdlog::get("console")->warn("The children do not get their presents at the right time");
-        return -1;
     }
+
+    if (display_table)
+    {
+        print_Table(&sc, &ev, &rs);
+    }
+
+//Schreibt Objektdaten in json file
+    if (!jsonfilepath.empty()){
+        write_IntoJSON(&sc, &ev, &rs, jsonfilepath);
+    }
+
+//Ausgabe wenn Christmas vorüber ista
+
+
 }

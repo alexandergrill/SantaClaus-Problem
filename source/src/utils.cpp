@@ -8,16 +8,18 @@
 //includes
 #include "utils.h"
 
-
-#include "rang.hpp"
-#include "json.hpp"
+#include <rang/rang.hpp>
+#include <json/json.hpp>
+#include <tabulate/table.hpp>
 
 #include <random>
 #include <iostream>
+#include <fstream>
 
 //namespaces
 using namespace std;
 using namespace rang;
+using namespace tabulate;
 using json = nlohmann::json;
 
 //Funktionen Definitionen
@@ -50,8 +52,33 @@ void to_Christmas(int hours){
     christmas = true;
 }
 
-/*void write_intoJSON(SantaClaus &sc, Elves &ev, Reindeer &rn, std::string json_file){
-    json santa;
-    json elves;
-    json renndeer;
-}*/
+/*
+-Name: void to_Christmas
+-Beschreibung: setzt die bool Variable christmas nach einer Zeit auf true
+-Input: int hours
+-Output:
+*/
+void write_IntoJSON(SantaClaus *sc, Elves *ev, Reindeer *rn, std::string json_file){
+    json data;
+    ofstream of(json_file);
+    double btime = sc->get_Blithelytime();
+    int esum = ev->get_SumElves();
+    int rsum = rn->get_Reindeer();
+
+    data["Santa Claus"]["Blithely Hours"] = btime;
+    data["Reindeer"][""] = rsum;
+    data["Elves"]["Sum of all elves, which need help"] = esum;
+    of << data;
+}
+
+void print_Table(SantaClaus *sc, Elves *ev, Reindeer *rn){
+    Table objects_table;
+    double btime = sc->get_Blithelytime();
+    int esum = ev->get_SumElves();
+    int rsum = rn->get_Reindeer();
+
+    //objects_table.format().font_style({tabulate::FontStyle::arial}).width(30);
+    objects_table.add_row({"Santa Claus", "Elves", "Reindeer"});
+    objects_table.add_row({to_string(btime), to_string(esum), to_string(rsum)});
+    cout << objects_table << endl;
+}
