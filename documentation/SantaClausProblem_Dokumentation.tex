@@ -5,6 +5,7 @@
 \usepackage[T1]{fontenc}
 \usepackage{graphicx}
 \usepackage[cache=false]{minted}
+\usepackage{dirtree}
 
 \begin{document}
 \begin{titlepage}
@@ -42,7 +43,8 @@
 \newpage
 
 \section{Einführung}
- 
+ In diesem Kaptiel wird erklärt was der Grund für die Umsetzung war, welche Punkte in die Benotung miteinfließen und um welche Probelmstellung es sich handelt. Die genauere Erläuterung
+ der Grundproblematik wird aber im 2 Kaptiel beschrieben.
 \subsection{Vorwort}
 
 Auf Grund der akuellen Lage(COVID-19) in Österreich, wurde der Unterricht an den Schulen
@@ -85,7 +87,8 @@ und Santa Claus nicht weiß, welche Tätigkeiten zuerst vollendet werden sollen 
 \newpage
 
 \section{Aufgabenstelllung}
-
+Dieses Kapitel umfasst die genaue Beschreibung der Grundproblematik und deren Aufgabenstelllung. Weiters wird auch über die Idee der Umsetzung geschrieben. Zusätzliche Erweiterungen wie
+Kommandozeilenparameter, Konsolenausgabe etc.
 \subsection{Erleuterung der Grundproblematik}
 Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgende Problemstellung beschreiben:\\ 
 \\Santa Claus sitzt in seinem Spielwarenladen am Nordpol und schläft, während seine zurückgekommene Rentiere im Stall fressen
@@ -113,22 +116,27 @@ ausgeliefert werden können und, dass wenn alle Rentier da sind, Santa auf die H
 Mit Hilfe von Kommandozeilenparameter soll dem Benutzer ermöglicht, werden die Anzahl der Renntier und der Elfen zu definieren. Diese zwei Zahlen legen die maximal benötigte Anzahl fest, um den Thread Santa Claus aus seinem Schlaf zu holen.
 Ebenso kann der Benutzer auch die Zeit in Stunden bis zu Weihnachten angeben, dadurch kann geprüft werden ob es sich zu geringer Zeit ausgeht die Packete bis zu Weihnachten auszuliefern.
 Es werden keine negativen Zahlen, Buchstaben, Sonderzeichen akzeptiert und wenn der Benutzer sonstige Hilfe braucht kann er sich die Informatione mit dem Kommandozeilenparameter holen.
-\begin{description}
-    \item[-r,- -r]{\dots number of reindeer, which will be needed to fly}
-    \item[-e,- -e]{\dots number of elves, which will be needed to wake up Santa}
-    \item[-t,- -t]{\dots number of hours until christmas}
-    \item[-tab,- -tab]{\dots number of hours until christmas}
-    \item[-h,- -h]{\dots help}
-\end{description}
+\begin{minted}{c}
+Santa Claus Problem
+Usage: ./santa_claus_problem [OPTIONS]
 
-\subsection{Konsolen Ausgabe}
+Options:
+  -h,--help             Print this help message and exit
+  -r,--r INT            number of reindeer, which will be needed to fly
+  -e,--e INT            number of elves, that work in the factory
+  -t,--t INT            number of hours until christmas
+  -j,--j TEXT:FILE      write santa, reindeer, elves details in json File
+  -d,--d                show you a table about the Objects Santa, Elves, Reindeer
+\end{minted}
+
+\subsection{Konsolenausgabe}
 Die Abarbeitung bzw. Resultate der Threads SantaClaus, Elven und Rentiere werden in der Kommandozeile ausgegeben. Somit kann der Benutzer gut nachfollziehen, welche Tätigkeiten das Programm abgewickelt hat, welche noch bevor stehen und
 ob es zu Fehlersituation oder Ausnahmen gekommen ist. Angenommen es kommen Rentier zurück oder Elven benötigen Santa´s Hilfe so wird auch in der Kommandozeile dies wird mit spdlog festgehalten. Um am Ende einen genauen und übersichtlichen 
 Überblick den Benutzer zu verschaffen, wird mit dem Kommandozeilenparameter -tab eine Tabelle ausgegeben die Zeigt, wie viele Rentiere im Stall sind, wie viele Elfen Hilfe brauchten und wie viele Stunden Santa Claus geschlafen hat.
 \newpage
 
 \section{Themenbereiche}
-Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folien gut dokumentiert sind:
+Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folien gut dokumentiert sind und von denen ich mir einige Tipps geholt habe:
     \begin{itemize}
         \item  10\_processes
         \item  11\_threads
@@ -147,21 +155,188 @@ Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folie
     \end{itemize} 
 \newpage
 \section{Implementierung}
+In diesem Kapitel geht es grundsätzlich um die technische Realisierung der Aufgabenstellung. Im folgendem Abschnitt wird auch
+der Aufbau des Projekts beschrieben. Außerdem enthält dieses Kapitel auch die Dokumentation des Source Codes und wichtige Informationen bezgüglich Bibliotheken, 
+die im Projekt verwendet wurde. 
 
 \subsection{Aufbau}
-
-\subsection{Dokumentation des Source Codes}
-\subsubsection{Klassen}
-\subsubsection{Funktionen}
+Das Projekt wurde in 2 wesentlich Verzeichnisse eingeteilt, nämlich in source und documentation. In dem Verzeichniss documentation sind alle Unterlagen der theoretisch Arbeit 
+abgelegt worden. Im Verzeichniss source befinden sich alle relevanten Datein der technischen Umsetzung der Aufgabenstellung.
+Die drei erwähnten Objekte wurden zu je 3 Module aufgeteilt.
+Das heißt die Klassendefinition, Konstruktoren und Methodenprototypen von Santa Claus, Elven und Renntiere stehen in der jeweiligen h-Datei. Die Methodendefinitionen, der dazugehörigen Klasse,
+wurden in der dazugehörigen cpp-Datei kodiert. Zusätzlichen Funktionen die für die Umsetzung des Projekts dringed notwendig waren, wurden in dem Modul utils declariert und definiert.
+Da einige Source Code Abschnitte nicht verständlich und nachfollziebar sind, wurden alle Variablen, Funktionen, Klassen, Methoden und sonstiges gut dokumentiert.\\
+\dirtree{%
+.1 documentation\DTcomment{enthält alle Datein der theoretisch Ausarbeitung}.
+.2 {Logo.png}.
+.2 {SantaClausProblem\_Dokumentation.pdf}.
+.2 {SantaClausProblem\_Dokumentation.tex}.
+.1 source\DTcomment{enthält alle Datein der praktischen Ausarbeitung}.
+.2 build\DTcomment{darin befinden sich alle automatisch generiert werden Datein}.
+.3 {build.ninja}.
+.3 {compile\_commands.json}.
+.3 {meson\-info}.
+.3 {meson\-logs}.
+.3 {meson-private}.
+.3 {santa\_claus\_problem}.
+.3 {santa\_claus\_problem@exe}.
+.3 {santa\_problem.json}.
+.2 include\DTcomment{darin befinden sich alle h-Dateien}.
+.3 {Elves.h}.
+.3 {Reindeer.h}.
+.3 {SantaClaus.h}.
+.3 {utils.h}.
+.2 src\DTcomment{darin befinden sich alle cpp-Dateien}.
+.3 {Elves.cpp}.
+.3 {Reindeer.cpp}.
+.3 {SantaClaus.cpp}.
+.3 {utils.cpp}.
+.3 {main.cpp}.
+.2 {meson.build}.
+.2 {meson\_options.txt}.
+}
+\subsection{Source Codes Dokumentation}
+In diesem Abschnitt werden einzelne Programmteile beschreiben und genau erläutert, welche Aufgabe sie haben und welche Resultate davon entzogen werden.
+Es wird auch auf einzelne Grundgedanken, Umsetzungen und Lösungsvarianten daraufeingegangen, um 
+\subsubsection{Elves [Klasse]}
+\begin{minted}{cpp}
+//Klasse Elven
+class Elves{
+private:
+//Variablen
+    SantaClaus *sc;     //Verweis auf das dazugehörige SantaClaus Objekt
+    std::mutex &mxe;    //Mutex Obekt
+    int elves{0};       //Elfen
+    int maxelves{0};    //Elven die benötigt werden um Santa zu wecken
+    int elvessum{0};    //alle Elfen die Hilfe benötigten 
+public:
+//Condition Variable
+    std::condition_variable elfTex;
+//Konstruktor
+    Elves(int me, std::mutex& xe):mxe{xe}{
+        maxelves = me;
+    }
+//Methoden
+    //Arbeitsablauf der Elfen, Santa wird geweckt wenn Elfen in benötigen
+    void tinker();
+    //Santa Claus hilft jeden einzelnen Elfen
+    void get_Help();
+    //gibt die Anzahl der Elfen zurück, die Hilfe brauchen
+    int get_Elves();
+    /*gibt die Maximale Anzahl der Elfen zurück,
+     die benötigt werden um Santa zu wecken*/
+    int get_MaxElves();
+    int get_SumElves();
+    void set_Santa(SantaClaus *s);
+};
+\end{minted}
+\newpage
+\subsubsection{Reindeer [Klasse]}
+\begin{minted}{cpp}
+//Klassen Rentiere
+class Reindeer{
+private:
+//Variablen
+    SantaClaus *sc;         //Verweis auf das dazugehörige SantaClaus Objekt
+    std::mutex &mxr;        //Mutex Objekt
+    int reindeer{0};        //Rentiere
+    int maxreindeer;        //Rentiere die benötigt werden um Santa zu wecken
+public:
+//Condition Variable
+    std::condition_variable reindeerSem;
+//Konstruktor
+    Reindeer(int mr, std::mutex& xr):mxr{xr}{
+        maxreindeer = mr;
+    }    
+//Methoden
+    //Rückkunft aller Rentiere aus dem Osten
+    void comeback();
+    //wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
+    void get_Hitched();
+    //gibt die Anzahl der Rentier zurück, die zurückgekommen sind
+    int get_Reindeer();
+    /*gibt die Maximale Anzahl der Rentier zurück, 
+    die benötigt werden um Santa zu wecken*/
+    int get_MaxReindeer();
+    //setzt den Verweis, auf das jeweilige SantaClaus Objekt
+    void set_Santa(SantaClaus *s);
+    //setzt die Anzahl der Renntier auf 0 ->für Debuggen notwendig gewesen
+    void reset_Reindeer();
+};
+\end{minted}
+\newpage
+\subsubsection{Santa Claus [Klasse]}
+\begin{minted}{cpp}
+//Klasse Santa Claus
+class SantaClaus{
+private:
+//Variablen
+    Elves &elv;                 //Verweis auf das dazugehörige Elven Objekt
+    Reindeer &ren;              //Verweis auf das dazugehörige Renntier Objekt
+    std::mutex &mxs;            //Mutex Obekt
+    double blithelytime{0};     //gesamte Schlafzeit
+    bool doaction{false};       //bool Variable, für santaSem.wait
+    bool readytofly{false};     //bool Variable, für ren.reindeerSem.notify_one       
+    bool readytohelp{false};    //bool Variable, für elv.elfTex.notify_one
+public:
+//Condition Variable
+    std::condition_variable santaSem;
+//Konstruktor
+    SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
+    }
+//Methoden
+    /*Santa schläft und wird geweckt, wenn alle Rentiere zurück 
+    sind oder Elfen ihm 4brauchen*/
+    void sleep();      
+    //gibt die Zeit aus, die Santa munter war         
+    int get_Blithelytime(); 
+    //gibt true, false zurück je nachdem wie viele Rentiere zurück gekommen sind
+    bool get_Readytofly(); 
+    //gibt true, false zurück je nachdem wie viele Elven Santa benötigen
+    bool get_Readytohelp();
+    //addiert die Zeit, in der Santa munter war
+    void set_Blithelytime(double t);
+    //setzt die Variable readytohelp auf false
+    void set_Readytohelp();
+    //setzt die Variable doaction auf true
+    void set_Doaction();
+};
+\end{minted}
+\newpage
+\subsubsection{Zusätzliche Funktionen}
 \subsubsection{Sonstiges}
 
 \subsection{Verwendete Bibliotheken}
 \subsubsection{CLI11}
 \subsubsection{spdlog}
+\subsubsection{tabulat}
+\subsubsection{json}
 
 
+\section{Anwendungsfälle}
+Im folgendem Abschnitt werden alle Andwendungsfälle, die ein Benutzer durchführen kann, verkörpert. Dabei wird besonders auf
+die Kommandozeilenparameter eingegangen.
+\\
+\begin{minted}{cpp}
+    ./santa_claus_problem
+\end{minted}
+Dabei wird das Programm santa\_claus\_problem gestartet. Wobei 9 Rentiere und 3 Elfen
+gebraucht werden um Santa Claus aus seinem Schlaf zu wecken. Es werden 24 Stunde bis zur Auslieferung der Geschenke gewährleistet
+\\
+\begin{minted}{cpp}
+    ./santa_claus_problem -h
+\end{minted}
 
 \begin{minted}{cpp}
+    ./santa_claus_problem -r 3 -e 5 -t 10
+\end{minted}
+
+\begin{minted}{cpp}
+    ./santa_claus_problem -r 3 -e 5 -t 10 -d
+\end{minted}
+
+\begin{minted}{cpp}
+    ./santa_claus_problem -r 3 -e 5 -t 10 -d -e santa_problem.json
 \end{minted}
 
 
