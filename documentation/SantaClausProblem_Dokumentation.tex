@@ -72,25 +72,23 @@ die Implementierung verwendet wird, ist C++.
             \item Commit-Meldungen sollen kurz und prägnant sein und sollen ausdrücken für was dieser Commit steht.
         \end{itemize}
     \end{itemize} 
-    \end{description}
+\end{description}
 
 \subsection{Motivation}
 In diesem Projekt wird die Santa Claus Problematik erläutert und mit Hilfe eines C++ Projekt simuliert. Santa Claus wird wegen 
 zwei Faktoren geweckt, sonst benötigt er umbedingt seinen Schlaf. Er wird geweckt, wenn Elfen ihm brauchen, weil sie mit der Arbeit
 nicht weiter kommen, und dadurch die Produktion der Geschenke für die Kinder verlangsamt oder gar gestoppt wird. Deshalb ist es wichtig, dass 
-in diesem Moment Santa geweckt wird, um Santa den Elfen helfen zu können. Zugleich kommen auch die Renntiere in unterschiedlichen Zeitpunkten zurück von ihrere Reise und sammeln sich im Stall.
+in diesem Moment Santa geweckt wird, um Santa den Elfen helfen zu können. Zugleich kommen auch die Rentiere in unterschiedlichen Zeitpunkten zurück von ihrere Reise und sammeln sich im Stall.
 Dort warten sie gemeinsam bis sie vollzählig sind und Santa mit ihnen, folgedessen die Geschenke zu den Kindern liefern. Auch in diesem Moment ist es
-äußerst wichtig, dass Santa geweckt wird, weil er schon einen Teil der Geschenke mit den Renntieren ausliefern kann. Zu beachten ist jedoch, dass es zu keinem Zusammenstoß zwischen den Gruppen kommmt
+äußerst wichtig, dass Santa geweckt wird, weil er schon einen Teil der Geschenke mit den Rentieren ausliefern kann. Zu beachten ist jedoch, dass es zu keinem Zusammenstoß zwischen den Gruppen kommmt
 und Santa Claus nicht weiß, welche Tätigkeiten zuerst vollendet werden sollen bzw. welche eine höhere Priorität haben.
-
-
-
 \newpage
 
 \section{Aufgabenstelllung}
+
 \subsection{Erleuterung der Grundproblematik}
 Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgende Problemstellung beschreiben:\\ 
-\\Santa Claus sitzt in seinem Spielwarenladen am Nordpol und schläft, während seine zurückgekommene Renntiere im Stall fressen
+\\Santa Claus sitzt in seinem Spielwarenladen am Nordpol und schläft, während seine zurückgekommene Rentiere im Stall fressen
 um Kräfte für die jährliche Auslieferung der Geschenk an die Kinder zu Weihnachten zu sammeln. Seine fleißigen Elfen arbeiten sorgfälltig an den Geschenken der Kinder
 in der Spielzeugfabrik. Hin und wieder kann es vorkommen, dass die Elven beim Basteln vor einem Problem stehen und ohne Hilfe vom Santa nicht mehr weiter machen können.
 Es wäre eine Katastrophe, wenn die Geschenke nicht rechtzeitig am Heiligen Abend an die Kinder ausgeliefert werden können, weil einige Elfen die Produktion der Geschenke blockiert haben. \\\\
@@ -99,20 +97,68 @@ Wenn drei Elfen ihr Problem gelöst haben, müssen alle anderen Elfen, die den W
 Jedoch ist zu beachten, dass wenn Elfen vor der Tür seines Ladens warten, während das letzte Rentier für die Auslieferung aus dem Tropen zurückkehrt, beschließt der Weihnachtsmann, die Elfen bis nach Weihnachten warten zu lassen. Denn die es ist wichtiger den Schlitten
 fertigzustellen und die Packete auszuliefern.
 Nachdem Santa Claus ihnen beim Problem geholfen hat, können die Elfen erleichternd weiterbasteln und Santa Claus seinen Schlaf forsetzen.\\
-\\Allerdings möchte Santa Claus die Kinder nicht zu lange auf ihre Geschenke warte lassen, und deshalb soll er auch aufgeweckt werden, wenn genuge Renntiere bereit sind bzw. zurück aus ihrem Urlaub im Südpazifik gekommen sind, um den 
+\\Allerdings möchte Santa Claus die Kinder nicht zu lange auf ihre Geschenke warte lassen, und deshalb soll er auch aufgeweckt werden, wenn genuge Rentiere bereit sind bzw. zurück aus ihrem Urlaub im Südpazifik gekommen sind, um den 
 Schlitten mit den Geschenken zu ziehen und eine Ladung Geschenke zu verteilen. Das letzte Rentier, das ankommt, muss den Weihnachtsmann holen, währen die anderen Rentiere gemütlich in der warmen Hütte warten, bevor sie vor dem Schlitten gespannt werden.\\
 \\Die restliche Zeit kann Santa schlafen, um für die nächste anstregenden Tätigkeiten Kräfte zu schöpfen. Mann kann davon ausgehen, dass stets genug Arbeit für die Elfen und genug Geschenke für eine Ladung Geschenke vorhanden sind.
-Das heißt Elfen und Renntiere sind weitgehend unabhängig voneinander. Santa Claus, seine Renntiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintrehten von Szenarien festgehalten werden kann.
+Das heißt Elfen und Rentiere sind weitgehend unabhängig voneinander. Santa Claus, seine Rentiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintrehten von Szenarien festgehalten werden kann.
+\newpage
 
+\subsection{Idee}
+Das Programm besteht aus drei Threads nämlich: SantaClaus, Rentiere, Elven. Der Thread SantaClaus schläft so lange bis, entweder alle seine benötigten Rentier zurückgekommen sind, oder 3 oder mehrere Elven ihm drigend brauchen.
+Im Thread Renntier wird modiliert, dass noch einer zufälligen Dauer, Rentiere zurückkommen und Santa danach aufwecken, sodass sie schon einen Teil der Geschenke an die Kinder liefern können. Im Thread Elven wird ebenso modiliert, dass
+nach einer zufälligen Zeit Elven Santa um seine Hilfe bitten. Nach einer bestimmten Anzahl von Elfen wird auch hier Santa geweckt, sodass sie weiter arbeiten können. Das wichtige ist vorallem, dass die Geschenke bis zum Heiligen Abend
+ausgeliefert werden können und, dass wenn alle Rentier da sind, Santa auf die Hilferufe der Elfen verzichtet und die Geschenke ausliefert.
+
+\subsection{Kommandozeilenparameter}
+Mit Hilfe von Kommandozeilenparameter soll dem Benutzer ermöglicht, werden die Anzahl der Renntier und der Elfen zu definieren. Diese zwei Zahlen legen die maximal benötigte Anzahl fest, um den Thread Santa Claus aus seinem Schlaf zu holen.
+Ebenso kann der Benutzer auch die Zeit in Stunden bis zu Weihnachten angeben, dadurch kann geprüft werden ob es sich zu geringer Zeit ausgeht die Packete bis zu Weihnachten auszuliefern.
+Es werden keine negativen Zahlen, Buchstaben, Sonderzeichen akzeptiert und wenn der Benutzer sonstige Hilfe braucht kann er sich die Informatione mit dem Kommandozeilenparameter holen.
+\begin{description}
+    \item[-r,- -r]{\dots number of reindeer, which will be needed to fly}
+    \item[-e,- -e]{\dots number of elves, which will be needed to wake up Santa}
+    \item[-t,- -t]{\dots number of hours until christmas}
+    \item[-tab,- -tab]{\dots number of hours until christmas}
+    \item[-h,- -h]{\dots help}
+\end{description}
+
+\subsection{Konsolen Ausgabe}
+Die Abarbeitung bzw. Resultate der Threads SantaClaus, Elven und Rentiere werden in der Kommandozeile ausgegeben. Somit kann der Benutzer gut nachfollziehen, welche Tätigkeiten das Programm abgewickelt hat, welche noch bevor stehen und
+ob es zu Fehlersituation oder Ausnahmen gekommen ist. Angenommen es kommen Rentier zurück oder Elven benötigen Santa´s Hilfe so wird auch in der Kommandozeile dies wird mit spdlog festgehalten. Um am Ende einen genauen und übersichtlichen 
+Überblick den Benutzer zu verschaffen, wird mit dem Kommandozeilenparameter -tab eine Tabelle ausgegeben die Zeigt, wie viele Rentiere im Stall sind, wie viele Elfen Hilfe brauchten und wie viele Stunden Santa Claus geschlafen hat.
+\newpage
+
+\section{Themenbereiche}
+Das Projekt umfasst folgende Themengebiet, die unter anderem in folgenden Folien gut dokumentiert sind:
+    \begin{itemize}
+        \item  10\_processes
+        \item  11\_threads
+        \item  12\_threads2 
+        \item  13\_synchronization 
+        \item  14\_condition\_synchronization 
+        \item  15\_sync\_mechanisms 
+        \item  16\_threadsafe\_interfaces 
+        \item  17\_dist\_sync 
+        \item  18\_task\_based\_programming 
+        \item  19\_parallel\_programming 
+        \item  20\_threads\_perfmem
+        \item  21\_encoding
+        \item  22\_data\_interoperability
+        \item  23\_character\_encoding
+    \end{itemize} 
+\newpage
 \section{Implementierung}
 
+\subsection{Aufbau}
+
 \subsection{Dokumentation des Source Codes}
-\subsubsection{Klasen}
+\subsubsection{Klassen}
 \subsubsection{Funktionen}
-\subsubsection{Kommandozeilenparameter}
 \subsubsection{Sonstiges}
 
 \subsection{Verwendete Bibliotheken}
+\subsubsection{CLI11}
+\subsubsection{spdlog}
+
 
 
 \begin{minted}{cpp}

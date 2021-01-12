@@ -33,7 +33,7 @@ int main(int argc, char *argv[]){
 
     CLI::App app("Santa Claus Problem");
     app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly");
-    app.add_option("-e,--e", elvesnum, "number of elves, that work in the factory");
+    app.add_option("-e,--e", elvesnum, "number of elves, which will be needed to wake up Santa");
     app.add_option("-t,--t", time, "number of hours until christmas");
     CLI11_PARSE(app, argc, argv);
 
