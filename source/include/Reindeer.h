@@ -21,16 +21,17 @@ class SantaClaus;
 class Reindeer{
 private:
 //Variablen
+    SantaClaus *sc;         //Verweis auf das dazugehörige SantaClaus Objekt
+    std::mutex &mxr;        //Mutex Objekt
     int reindeer{0};        //Renntiere
     int maxreindeer;        //Renntiere die benötigt werden um Santa zu wecken
-    std::mutex& mxr;        //Mutex Objekt
-     SantaClaus* sc;         //Verweis auf das dazugehörige SantaClaus Objekt
 public:
 //Condition Variable
     std::condition_variable reindeerSem;
 //Konstruktor
-    Reindeer(int rmax, std::mutex& xr):maxreindeer{rmax}, mxr{xr}{
-    }
+    Reindeer(int mr, std::mutex& xr):mxr{xr}{
+        maxreindeer = mr;
+    }    
 //Methoden
     void comeback();
     void get_Hitched();

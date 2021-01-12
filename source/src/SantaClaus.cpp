@@ -44,7 +44,7 @@ void SantaClaus::sleep(){
             ren.reset_Reindeer();
             doaction = false;
         }
-        if (elv.get_Elves() == 3 && !readytohelp && christmas == false)
+        if (elv.get_Elves() == elv.get_MaxElves() && !readytohelp && christmas == false)
         {
             readytohelp = true;
             elv.elfTex.notify_one();

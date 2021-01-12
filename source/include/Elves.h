@@ -21,23 +21,25 @@ class SantaClaus;
 class Elves{
 private:
 //Variablen
+    SantaClaus *sc;     //Verweis auf das dazugehörige SantaClaus Objekt
+    std::mutex &mxe;    //Mutex Obekt
     int elves{0};       //Elfen
-    int elvessum{0};    //alle Elfen die Hilfe benötigten
-    std::mutex& mxe;    //Mutex Obekt
-    SantaClaus* sc;     //Verweis auf das dazugehörige SantaClaus Objekt 
+    int maxelves{0};    //Elven die benötigt werden um Santa zu wecken
+    int elvessum{0};    //alle Elfen die Hilfe benötigten 
 public:
 //Condition Variable
     std::condition_variable elfTex;
 //Konstruktor
-    Elves(std::mutex& xe):mxe{xe}{
+    Elves(int me, std::mutex& xe):mxe{xe}{
+        maxelves = me;
     }
 //Methoden
     void tinker();
     void get_Help();
     int get_Elves();
+    int get_MaxElves();
     int get_SumElves();
     void set_Santa(SantaClaus *s);
-
 };
 
 #endif

@@ -32,7 +32,7 @@ bool christmas;
 
 int main(int argc, char *argv[]){
     int reendiernum{9};                     //maximale Zahl der Renntier, um Santa zu wecken
-    int elvesnum{10};
+    int elvesnum{3};                        //maximale Zahl der Elven, um Santa zu wecken
     int time{24};                           //Anzahl der Stunden bis zu Christmas
 
 //Kommandozeilenparameter
@@ -47,7 +47,7 @@ int main(int argc, char *argv[]){
 
     mutex mx;                               //Mutex Objekt
 
-    Elves ev(ref(mx));                      //Objekt Elven
+    Elves ev(elvesnum, ref(mx));                      //Objekt Elven
     Reindeer rs(reendiernum, ref(mx));      //Objekt Renntier
     SantaClaus sc(ev,rs, ref(mx));          //Objekt SantaClaus
     ev.set_Santa(&sc);

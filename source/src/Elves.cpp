@@ -32,7 +32,7 @@ using namespace rang;
 void Elves::tinker(){
     unique_lock<mutex> ulh{mxe};
     while (sc->get_readytofly() == false && christmas == false){
-        if (elves != 3){
+        if (elves != maxelves){
             int t = get_randomnum(0.5, 1.0) * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
@@ -47,7 +47,7 @@ void Elves::tinker(){
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
        }
-       if (elves == 3 && christmas == false){
+       if (elves == maxelves && christmas == false){
            sc->set_doaction();
            sc->santaSem.notify_one();
        }
@@ -69,7 +69,7 @@ void Elves::get_Help(){
         double time = dis(gen);
         int t = time * 1000;
         this_thread::sleep_for(chrono::milliseconds(t));
-        cout << fg::cyan << (elves - 4) * -1 << " elves helped\n"<< flush;
+        cout << fg::cyan << (elves - (maxelves + 1)) * -1 << " elves helped\n"<< flush;
         elves -= 1;
     }
     sc->set_readytohelp();
@@ -83,6 +83,17 @@ void Elves::get_Help(){
 */
 int Elves::get_Elves(){
     return elves;
+}
+
+/*
+-Name: int get_MaxElves
+-Beschreibung: gibt die Maximale Anzahl der Elfen zurück, die benötigt werden um Santa zu wecken
+-Input:
+-Output: int maxelves     
+*/
+int Elves::get_MaxElves()
+{
+    return maxelves;
 }
 
 /*

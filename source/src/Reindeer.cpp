@@ -37,7 +37,7 @@ void Reindeer::comeback(){
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         spdlog::get("console")->info("A Reindeer is back");
-        if (reindeer == maxreindeer && christmas == true){
+        if (reindeer == maxreindeer){
             sc->set_doaction();
             sc->santaSem.notify_one();
         }
@@ -62,6 +62,7 @@ void Reindeer::get_Hitched(){
     cout << fg::yellow << "Reindeers are hichted by Santa\n" << flush;
     this_thread::sleep_for(3s);
     cout << fg::green << "Santa we can fly\n" << flush;
+    spdlog::get("console")->info("The children get their presents at the right time");
     cout << fg::green << "Merry Christmas Ho Ho Ho\n" << flush;
 }
 

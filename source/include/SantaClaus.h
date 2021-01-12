@@ -26,13 +26,13 @@ class Reindeer;
 class SantaClaus{
 private:
 //Variablen
+    Elves &elv;                 //Verweis auf das dazugehörige Elven Objekt
+    Reindeer &ren;              //Verweis auf das dazugehörige Renntier Objekt
+    std::mutex &mxs;            //Mutex Obekt
     int blithelytime{0};        //gesamte Schlafzeit
     bool doaction{false};       //bool Variable, für santaSem.wait
     bool readytofly{false};     //bool Variable, für ren.reindeerSem.notify_one       
     bool readytohelp{false};    //bool Variable, für elv.elfTex.notify_one
-    std::mutex &mxs;            //Mutex Obekt 
-    Elves& elv;                 //Verweis auf das dazugehörige Elven Objekt
-    Reindeer& ren;              //Verweis auf das dazugehörige Renntier Objekt 
 public:
 //Condition Variable
     std::condition_variable santaSem;
