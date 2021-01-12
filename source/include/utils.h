@@ -19,8 +19,8 @@
 extern bool christmas;      //bool Variable->true, wenn Stunden bis Christmas abgelaufen sind
 
 //Funktionen
-double get_randomnum(double start, double end);
-void to_christmas(int hours);
+double get_RandomNum(double start, double end);
+void to_Christmas(int hours);
 //void write_intoJSON(SantaClaus& sc, Elves& ev, Reindeer& rn, std::string json_file);
 
 #endif

@@ -31,24 +31,24 @@ using namespace rang;
 */
 void Elves::tinker(){
     unique_lock<mutex> ulh{mxe};
-    while (sc->get_readytofly() == false && christmas == false){
+    while (sc->get_Readytofly() == false && christmas == false){
         if (elves != maxelves){
-            int t = get_randomnum(0.5, 1.0) * 1000;
+            int t = get_RandomNum(0.5, 1.0) * 1000;
             this_thread::sleep_for(chrono::milliseconds(t));
             elves += 1;
             elvessum += 1;
             cout << fg::cyan << elves << " Elves need help\n" << flush;
             spdlog::get("console")->info("A Elve is waiting for Santa´s Help");
         }
-        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_readytohelp() == true; })){
-            if(sc->get_readytofly() == false){
+        if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_Readytohelp() == true; })){
+            if(sc->get_Readytofly() == false){
                 get_Help();
                 elves = 0;
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
        }
        if (elves == maxelves && christmas == false){
-           sc->set_doaction();
+           sc->set_Doaction();
            sc->santaSem.notify_one();
        }
     }
@@ -62,17 +62,12 @@ void Elves::tinker(){
 */
 void Elves::get_Help(){
     while (elves > 0){
-        //doppelter Code Alex!
-        random_device rd;
-        mt19937 gen{rd()};
-        uniform_real_distribution<> dis{0.1, 0.5};
-        double time = dis(gen);
-        int t = time * 1000;
+        int t = get_RandomNum(0.1, 0.5) * 1000;
         this_thread::sleep_for(chrono::milliseconds(t));
         cout << fg::cyan << (elves - (maxelves + 1)) * -1 << " elves helped\n"<< flush;
         elves -= 1;
     }
-    sc->set_readytohelp();
+    sc->set_Readytohelp();
 }
 
 /*

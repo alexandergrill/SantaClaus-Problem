@@ -23,38 +23,38 @@ using namespace rang;
 //Methoden Definitionen
 
 /*
--Name:
--Beschreibung:
+-Name: void comeback
+-Beschreibung: Rückkunft aller Rentiere aus dem Osten
 -Input: 
 -Output:        
 */
 void Reindeer::comeback(){
     unique_lock<std::mutex> ulr{mxr};
-    while (christmas == false && sc->get_readytofly() == false)
+    while (christmas == false && sc->get_Readytofly() == false)
     {
-        int t = get_randomnum(0.5, 1.5) * 1000;
+        int t = get_RandomNum(0.5, 1.5) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         spdlog::get("console")->info("A Reindeer is back");
         if (reindeer == maxreindeer){
-            sc->set_doaction();
+            sc->set_Doaction();
             sc->santaSem.notify_one();
         }
-        if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_readytofly() == true; })){
+        if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_Readytofly() == true; })){
             get_Hitched();
         }
     }
     if (christmas == true)
     {
-        sc->set_doaction();
+        sc->set_Doaction();
         sc->santaSem.notify_one();
     }
 }
 
 /*
--Name:
--Beschreibung:
+-Name: void get_Hitched
+-Beschreibung: Wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
 -Input: 
 -Output:        
 */
@@ -67,29 +67,29 @@ void Reindeer::get_Hitched(){
 }
 
 /*
--Name:
--Beschreibung:
+-Name: int get_Reindeer
+-Beschreibung: gibt die Anzahl der Rentier zurück, die zurückgekommen sind
 -Input: 
--Output:        
+-Output: int reindeer     
 */
 int Reindeer::get_Reindeer(){
     return reindeer;
 }
 
 /*
--Name:
--Beschreibung:
+-Name: int get_MaxReindeer
+-Beschreibung: gibt die Maximale Anzahl der Rentier zurück, die benötigt werden um Santa zu wecken
 -Input: 
--Output:        
+-Output: int maxreindeer
 */
 int Reindeer::get_MaxReindeer(){
     return maxreindeer;
 }
 
 /*
--Name:
--Beschreibung:
--Input: 
+-Name: void set_Santa
+-Beschreibung: setzt den Verweis, auf das jeweilige SantaClaus Objekt
+-Input: SantaClaus* s
 -Output:        
 */
 void Reindeer::set_Santa(SantaClaus* s){
@@ -97,8 +97,8 @@ void Reindeer::set_Santa(SantaClaus* s){
 }
 
 /*
--Name:
--Beschreibung:
+-Name: void reset_Reindeer()
+-Beschreibung: setzt die Anzahl der Renntier auf 0 ->für Debuggen notwendig gewesen
 -Input: 
 -Output:        
 */

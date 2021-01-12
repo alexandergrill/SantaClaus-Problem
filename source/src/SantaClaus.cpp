@@ -24,8 +24,8 @@ using namespace rang;
 //Methoden Definitionen
 
 /*
--Name:
--Beschreibung:
+-Name: void sleep
+-Beschreibung: Santa schläft und wird geweckt, wenn alle Rentiere zurück sind oder Elfen ihm brauchen
 -Input: 
 -Output:        
 */
@@ -57,41 +57,41 @@ void SantaClaus::sleep(){
 }
 
 /*
--Name:
--Beschreibung:
+-Name: bool get_Readytofly
+-Beschreibung: gibt true, false zurück je nachdem wie viele Rentiere zurück gekommen sind
 -Input: 
--Output:        
+-Output: bool readytofly     
 */
-bool SantaClaus::get_readytofly(){
+bool SantaClaus::get_Readytofly(){
     return readytofly;
 }
 
 /*
--Name:
--Beschreibung:
+-Name: bool get_Readytohelp
+-Beschreibung: gibt true, false zurück je nachdem wie viele Elven Santa benötigen
 -Input: 
--Output:        
+-Output: bool readytohelp   
 */
-bool SantaClaus::get_readytohelp(){
+bool SantaClaus::get_Readytohelp(){
     return readytohelp;
 }
 
 /*
--Name:
--Beschreibung:
+-Name: void set_Readytohelp
+-Beschreibung: setzt die Variable readytohelp auf false
 -Input: 
 -Output:        
 */
-void SantaClaus::set_readytohelp(){
+void SantaClaus::set_Readytohelp(){
     readytohelp = false;
 }
 
 /*
--Name:
--Beschreibung:
+-Name: void set_Doaction
+-Beschreibung: setzt die Variable doaction auf true
 -Input: 
 -Output:        
 */
-void SantaClaus::set_doaction(){
+void SantaClaus::set_Doaction(){
     doaction = true;
 }

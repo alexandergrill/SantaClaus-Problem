@@ -19,7 +19,7 @@ using namespace rang;
 
 using json = nlohmann::json;
 
-double get_randomnum(double start, double end){
+double get_RandomNum(double start, double end){
     random_device rd;
     mt19937 gen{rd()};
     uniform_real_distribution<> dis{start, end};
@@ -27,7 +27,7 @@ double get_randomnum(double start, double end){
     return num;
 }
 
-void to_christmas(int hours){
+void to_Christmas(int hours){
     christmas = false;
     for (int i = 0; i < hours; i++){
         sleep(1.1);

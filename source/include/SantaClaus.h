@@ -40,14 +40,11 @@ public:
     SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
     }
 //Methoden
-//
-//Methoden alle klein Schreiben!!!!!
-//
     void sleep();
-    bool get_readytofly();
-    bool get_readytohelp();    
-    void set_readytohelp();
-    void set_doaction();
+    bool get_Readytofly();
+    bool get_Readytohelp();    
+    void set_Readytohelp();
+    void set_Doaction();
 };
 
 #endif

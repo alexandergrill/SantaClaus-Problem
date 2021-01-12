@@ -23,8 +23,8 @@ private:
 //Variablen
     SantaClaus *sc;         //Verweis auf das dazugehörige SantaClaus Objekt
     std::mutex &mxr;        //Mutex Objekt
-    int reindeer{0};        //Renntiere
-    int maxreindeer;        //Renntiere die benötigt werden um Santa zu wecken
+    int reindeer{0};        //Rentiere
+    int maxreindeer;        //Rentiere die benötigt werden um Santa zu wecken
 public:
 //Condition Variable
     std::condition_variable reindeerSem;
@@ -39,7 +39,6 @@ public:
     int get_MaxReindeer();
     void set_Santa(SantaClaus *s);
     void reset_Reindeer();
-
 };
 
 #endif
