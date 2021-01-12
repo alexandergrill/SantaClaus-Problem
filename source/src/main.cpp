@@ -38,6 +38,11 @@ int main(int argc, char *argv[]){
     bool display_table{false};
 //Kommandozeilenparameter
     CLI::App app("Santa Claus Problem");
+<<<<<<< HEAD
+    app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly");
+    app.add_option("-e,--e", elvesnum, "number of elves, which will be needed to wake up Santa");
+    app.add_option("-t,--t", time, "number of hours until christmas");
+=======
     app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly")->check([](const string &str) {
         auto check = str.find_first_not_of("0123456789");
         if (check == string::npos){
@@ -66,8 +71,12 @@ int main(int argc, char *argv[]){
         }
     });
     ;
+<<<<<<< HEAD
     app.add_option("-j,--j", jsonfilepath, "write santa, reindeer, elves details in json File")->check(CLI::ExistingFile);
     app.add_flag("-d,--d", display_table, "show you a table about the Objects Santa, Elves, Reindeer");
+=======
+>>>>>>> 90f5578589f4685de10984a8dcc81f18a1478e3e
+>>>>>>> ff73e0874d8d35d748b1de5806c2c31a9b897c40
     CLI11_PARSE(app, argc, argv);
 
     auto console = spdlog::stderr_color_mt("console");
