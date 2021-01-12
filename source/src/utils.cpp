@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "utils.h"
 
 
@@ -14,12 +15,20 @@
 #include <random>
 #include <iostream>
 
+//namespaces
 using namespace std;
 using namespace rang;
-
 using json = nlohmann::json;
 
-double get_randomnum(double start, double end){
+//Funktionen Definitionen
+
+/*
+-Name: double get_RandomNum
+-Beschreibung: liefter eine Zufallszahl zurück zwischen start und end
+-Input: double start, double end
+-Output: double num
+*/
+double get_RandomNum(double start, double end){
     random_device rd;
     mt19937 gen{rd()};
     uniform_real_distribution<> dis{start, end};
@@ -27,7 +36,13 @@ double get_randomnum(double start, double end){
     return num;
 }
 
-void to_christmas(int hours){
+/*
+-Name: void to_Christmas
+-Beschreibung: setzt die bool Variable christmas nach einer Zeit auf true
+-Input: int hours
+-Output:
+*/
+void to_Christmas(int hours){
     christmas = false;
     for (int i = 0; i < hours; i++){
         sleep(1.1);

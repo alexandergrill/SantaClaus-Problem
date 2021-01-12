@@ -5,6 +5,7 @@
  * date:    01.01.2021
 */
 
+//includes
 #include "Reindeer.h"
 #include "utils.h"
 #include "spdlog/spdlog.h"
@@ -15,52 +16,92 @@
 #include <thread>
 #include <iostream>
 
+//namespaces
 using namespace std;
 using namespace rang;
 
+//Methoden Definitionen
 
+/*
+-Name: void comeback
+-Beschreibung: Rückkunft aller Rentiere aus dem Osten
+-Input: 
+-Output:        
+*/
 void Reindeer::comeback(){
     unique_lock<std::mutex> ulr{mxr};
-    while (christmas == false && sc->get_readytofly() == false)
+    while (christmas == false && sc->get_Readytofly() == false)
     {
-        int t = get_randomnum(0.5, 1.5) * 1000;
+        int t = get_RandomNum(0.5, 1.5) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         spdlog::get("console")->info("A Reindeer is back");
-        if (reindeer == maxreindeer && christmas == true){
-            sc->set_doaction();
+        if (reindeer == maxreindeer){
+            sc->set_Doaction();
             sc->santaSem.notify_one();
         }
-        if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_readytofly() == true; })){
+        if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_Readytofly() == true; })){
             get_Hitched();
         }
     }
     if (christmas == true)
     {
-        sc->set_doaction();
+        sc->set_Doaction();
         sc->santaSem.notify_one();
     }
 }
 
-int Reindeer::get_Reindeer(){
-    return reindeer;
-}
-
-void Reindeer::reset_Reindeer(){
-    reindeer = 0;
-}
-
+/*
+-Name: void get_Hitched
+-Beschreibung: Wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
+-Input: 
+-Output:        
+*/
 void Reindeer::get_Hitched(){
     cout << fg::yellow << "Reindeers are hichted by Santa\n" << flush;
     this_thread::sleep_for(3s);
     cout << fg::green << "Santa we can fly\n" << flush;
+    spdlog::get("console")->info("The children get their presents at the right time");
     cout << fg::green << "Merry Christmas Ho Ho Ho\n" << flush;
 }
+
+/*
+-Name: int get_Reindeer
+-Beschreibung: gibt die Anzahl der Rentier zurück, die zurückgekommen sind
+-Input: 
+-Output: int reindeer     
+*/
+int Reindeer::get_Reindeer(){
+    return reindeer;
+}
+
+/*
+-Name: int get_MaxReindeer
+-Beschreibung: gibt die Maximale Anzahl der Rentier zurück, die benötigt werden um Santa zu wecken
+-Input: 
+-Output: int maxreindeer
+*/
+int Reindeer::get_MaxReindeer(){
+    return maxreindeer;
+}
+
+/*
+-Name: void set_Santa
+-Beschreibung: setzt den Verweis, auf das jeweilige SantaClaus Objekt
+-Input: SantaClaus* s
+-Output:        
+*/
 void Reindeer::set_Santa(SantaClaus* s){
     sc = s;
 }
 
-int Reindeer::get_MaxReindeer(){
-    return maxreindeer;
+/*
+-Name: void reset_Reindeer()
+-Beschreibung: setzt die Anzahl der Renntier auf 0 ->für Debuggen notwendig gewesen
+-Input: 
+-Output:        
+*/
+void Reindeer::reset_Reindeer(){
+    reindeer = 0;
 }
