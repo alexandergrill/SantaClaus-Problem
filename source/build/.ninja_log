@@ -81,3 +81,12 @@
 3	14667	1610445558607820027	santa_claus_problem@exe/src_utils.cpp.o	b58a3150078c0bb6
 2	18067	1610445562003741379	santa_claus_problem@exe/src_main.cpp.o	722eff60d4bf47cd
 18067	19226	1610445563167714423	santa_claus_problem	8afbaccbffb8b3cf
+3	10112	1610446263650891632	santa_claus_problem@exe/src_SantaClaus.cpp.o	6d324be252f66f4d
+3	10486	1610446264022884211	santa_claus_problem@exe/src_Reindeer.cpp.o	96ca76e807b07f92
+3	10644	1610446264182881020	santa_claus_problem@exe/src_Elves.cpp.o	cd0a1a79f02a288f
+2	12296	1610446460522891534	santa_claus_problem@exe/src_main.cpp.o	722eff60d4bf47cd
+12296	13439	1610446461666867915	santa_claus_problem	8afbaccbffb8b3cf
+2	9734	1610446611419746230	santa_claus_problem@exe/src_Reindeer.cpp.o	96ca76e807b07f92
+3	9899	1610446611595742530	santa_claus_problem@exe/src_Elves.cpp.o	cd0a1a79f02a288f
+2	14090	1610446615783654461	santa_claus_problem@exe/src_main.cpp.o	722eff60d4bf47cd
+14090	15248	1610446616947629976	santa_claus_problem	8afbaccbffb8b3cf

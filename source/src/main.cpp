@@ -66,6 +66,7 @@ int main(int argc, char *argv[]){
 //Ausgabe wenn Christmas vorüber ist
     if (christmas == true){
         cout << fg::red << "Christmas is over!\n" << flush;
+        spdlog::get("console")->warn("The children do not get their presents at the right time");
     }
 }
 
