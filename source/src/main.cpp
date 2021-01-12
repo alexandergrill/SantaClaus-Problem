@@ -37,9 +37,42 @@ int main(int argc, char *argv[]){
 
 //Kommandozeilenparameter
     CLI::App app("Santa Claus Problem");
-    app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly");
-    app.add_option("-e,--e", elvesnum, "number of elves, that work in the factory");
-    app.add_option("-t,--t", time, "number of hours until christmas");
+    app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly")->check([](const string &str) {
+        auto check = str.find_first_not_of("0123456789");
+        if (check == string::npos)
+        {
+            return string();
+        }
+        else
+        {
+            return string(str + " contains not numeric character");
+        }
+    });
+    ;
+    app.add_option("-e,--e", elvesnum, "number of elves, that work in the factory")->check([](const string &str) {
+        auto check = str.find_first_not_of("0123456789");
+        if (check == string::npos)
+        {
+            return string();
+        }
+        else
+        {
+            return string(str + " contains not numeric character");
+        }
+    });
+    ;
+    app.add_option("-t,--t", time, "number of hours until christmas")->check([](const string &str) {
+        auto check = str.find_first_not_of("0123456789");
+        if (check == string::npos)
+        {
+            return string();
+        }
+        else
+        {
+            return string(str + " contains not numeric character");
+        }
+    });
+    ;
     CLI11_PARSE(app, argc, argv);
 
     auto console = spdlog::stderr_color_mt("console");
@@ -65,10 +98,8 @@ int main(int argc, char *argv[]){
 
 //Ausgabe wenn Christmas vorüber ist
     if (christmas == true){
-        cout << fg::red << "Christmas is over!\n" << flush;
+        cerr << fg::red << "Christmas is over!\n" << flush;
         spdlog::get("console")->warn("The children do not get their presents at the right time");
+        return -1;
     }
 }
-
-
-
