@@ -29,24 +29,22 @@ using namespace rang;
 -Output:        
 */
 void Reindeer::comeback(){
-    unique_lock<std::mutex> ulr{mxr};
-    while (christmas == false && sc->get_Readytofly() == false)
-    {
-        int t = get_RandomNum(0.5, 1.5) * 1000;
+    while (christmas == false && sc->get_Readytofly() == false){
+        int t = get_RandomNum(1.0, 2.0) * 1000;
         this_thread::sleep_for(std::chrono::milliseconds(t));
         reindeer += 1;
         cout << fg::blue << reindeer << " Reindeer are in the stable\n" << flush;
         spdlog::get("console")->info("A Reindeer is back");
-        if (reindeer == maxreindeer){
+        if(reindeer == maxreindeer){
             sc->set_Doaction();
             sc->santaSem.notify_one();
         }
+        unique_lock<std::mutex> ulr{mxr};
         if (reindeerSem.wait_for(ulr, 1s, [&] { return sc->get_Readytofly() == true; })){
             get_Hitched();
         }
     }
-    if (christmas == true)
-    {
+    if (christmas == true){
         sc->set_Doaction();
         sc->santaSem.notify_one();
     }

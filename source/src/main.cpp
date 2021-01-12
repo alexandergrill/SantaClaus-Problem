@@ -34,15 +34,10 @@ int main(int argc, char *argv[]){
     int reendiernum{9};                     //maximale Zahl der Renntier, um Santa zu wecken
     int elvesnum{3};                        //maximale Zahl der Elven, um Santa zu wecken
     int time{24};                           //Anzahl der Stunden bis zu Christmas
-    string jsonfilepath;
-    bool display_table{false};
+    string jsonfilepath;                    //json Filename
+    bool display_table{false};              //wird auf true gesetzt wenn am Ende Tabelle geprinted werden soll
 //Kommandozeilenparameter
     CLI::App app("Santa Claus Problem");
-<<<<<<< HEAD
-    app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly");
-    app.add_option("-e,--e", elvesnum, "number of elves, which will be needed to wake up Santa");
-    app.add_option("-t,--t", time, "number of hours until christmas");
-=======
     app.add_option("-r,--r", reendiernum, "number of reindeer, which will be needed to fly")->check([](const string &str) {
         auto check = str.find_first_not_of("0123456789");
         if (check == string::npos){
@@ -70,13 +65,8 @@ int main(int argc, char *argv[]){
             return string(str + " contains not numeric character");
         }
     });
-    ;
-<<<<<<< HEAD
     app.add_option("-j,--j", jsonfilepath, "write santa, reindeer, elves details in json File")->check(CLI::ExistingFile);
     app.add_flag("-d,--d", display_table, "show you a table about the Objects Santa, Elves, Reindeer");
-=======
->>>>>>> 90f5578589f4685de10984a8dcc81f18a1478e3e
->>>>>>> ff73e0874d8d35d748b1de5806c2c31a9b897c40
     CLI11_PARSE(app, argc, argv);
 
     auto console = spdlog::stderr_color_mt("console");
@@ -84,11 +74,11 @@ int main(int argc, char *argv[]){
 
     mutex mx;                               //Mutex Objekt
 
-    Elves ev(elvesnum, ref(mx));             //Objekt Elven
+    Elves ev(elvesnum, ref(mx));            //Objekt Elven
     Reindeer rs(reendiernum, ref(mx));      //Objekt Renntier
     SantaClaus sc(ev,rs, ref(mx));          //Objekt SantaClaus
-    ev.set_Santa(&sc);
-    rs.set_Santa(&sc);
+    ev.set_Santa(&sc);                      //Santaobjekt wird gesetzt
+    rs.set_Santa(&sc);                      //Santaobjekt wird gesetzt
 
     thread (to_Christmas, time).detach();   //Thread to_christmas
     thread tsanta([&]{sc.sleep();});        //Thread santa sleep
@@ -99,24 +89,21 @@ int main(int argc, char *argv[]){
     telves.join();                           
     tsanta.join(),
     treindeer.join();
-    if (christmas)
-    {
+
+//Ausgabe wenn Christmas vorüber ist
+    if (christmas == true && sc.get_Readytofly() == false){
         cerr << fg::red << "Christmas is over!\n"
              << flush;
         spdlog::get("console")->warn("The children do not get their presents at the right time");
     }
 
-    if (display_table)
-    {
+//wenn die Variable auf true gesetzt wird wird die Tabelle in der Console ausgegeben
+    if (display_table == true){
         print_Table(&sc, &ev, &rs);
     }
 
 //Schreibt Objektdaten in json file
-    if (!jsonfilepath.empty()){
+    if (jsonfilepath.empty() == false){
         write_IntoJSON(&sc, &ev, &rs, jsonfilepath);
     }
-
-//Ausgabe wenn Christmas vorüber ista
-
-
 }

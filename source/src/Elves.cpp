@@ -30,7 +30,6 @@ using namespace rang;
 -Output:        
 */
 void Elves::tinker(){
-    unique_lock<mutex> ulh{mxe};
     while (sc->get_Readytofly() == false && christmas == false){
         if (elves != maxelves){
             int t = get_RandomNum(0.5, 1.0) * 1000;
@@ -40,16 +39,17 @@ void Elves::tinker(){
             cout << fg::cyan << elves << " Elves need help\n" << flush;
             spdlog::get("console")->info("A Elve is waiting for Santa´s Help");
         }
+        if (elves == maxelves && christmas == false){
+            sc->set_Doaction();
+            sc->santaSem.notify_one();
+        }
+        unique_lock<mutex> ulh{mxe};
         if (elfTex.wait_for(ulh, 1s, [&] { return sc->get_Readytohelp() == true; })){
             if(sc->get_Readytofly() == false){
                 get_Help();
                 elves = 0;
                 cout << fg::magenta << "Santa go sleep!\n" << flush;
             }
-       }
-       if (elves == maxelves && christmas == false){
-           sc->set_Doaction();
-           sc->santaSem.notify_one();
        }
     }
 }
@@ -89,8 +89,7 @@ int Elves::get_Elves(){
 -Input:
 -Output: int maxelves     
 */
-int Elves::get_MaxElves()
-{
+int Elves::get_MaxElves(){
     return maxelves;
 }
 
