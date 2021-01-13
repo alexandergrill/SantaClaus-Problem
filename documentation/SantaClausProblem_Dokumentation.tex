@@ -49,11 +49,10 @@
 
 Auf Grund der akuellen Lage(COVID-19) in Österreich, wurde der Unterricht an den Schulen
 in Form von Distance-Learning abgehalten. Dehsalb war die Durchführung der Praktischen Arbeit in
-Netzwerktechnick nicht möglich. Herr Professor Kolouseck gab uns daraufhin eine Projektarbeit die bis zum 
+Netzwerktechnick nicht möglich. Herr Professor Kolouseck gab uns daraufhin eine Projektarbeit, die bis zum 
 20.01.2021 zu erledigen ist. Die Gesamtnote des Projekt ersetzt ausschließliche die Note,
-die man bei der Praktischen Arbeit erworben hätte. In diesem Projekt geht es darum mit Prozessen, Thread und Synchronisation
-für die jeweiligen Anwendungszenarien entwickelt werden, um damit zu zeigne, dass die Praktischen
-Fähigkeiten zum Implementieren verteiler Systeme erworben wurden. Die Programmiersprache die für
+die man bei der Praktischen Arbeit erworben hätte. In diesem Projekt geht es darum mit Prozessen, Threads und Synchronisation die jeweiligen Anwendungszenarien zu entwickelen. Damit soll die praktischen
+Fähigkeiten zur Implementierung verteilter Systeme erworben werden. Die Programmiersprache die für
 die Implementierung verwendet wird, ist C++.
 
 \begin{description}
@@ -61,17 +60,17 @@ die Implementierung verwendet wird, ist C++.
     \begin{itemize}
         \item praktischen Ausarbeitung
         \begin{itemize}
-            \item  dabei wird die Grundproblematik simuliert, klargestellt und verschiedenste Szenarios angewendet 
+            \item  dabei wird die Grundproblematik simuliert, klargestellt und verschiedenste Szenarien angewendet 
         \end{itemize}
         \item theoretisch Ausarbeitung
         \begin{itemize}
             \item  in diesem Teil wird die Aufgabenstellung, Probleme, Dokumentation der Source Codes usw. festgehalten 
         \end{itemize}
-        \item Git Hub Repository
+        \item GitHub Repository
         \begin{itemize}
             \item das Projekt muss auf GitHub gehostet werden, um die Verwaltung der Projekts zu erlechtern und, um den Workflow zu dokumentiern 
             \item Commites müssen gemacht werden, das man etwas als Patch verwenden kann (Fehler, Probleme können zurückgenommenr werden)
-            \item Commit-Meldungen sollen kurz und prägnant sein und sollen ausdrücken für was dieser Commit steht.
+            \item Commit-Meldungen sollen kurz und prägnant sein und sollen ausdrücken wozu dieser Commit steht.
         \end{itemize}
     \end{itemize} 
 \end{description}
@@ -80,41 +79,41 @@ die Implementierung verwendet wird, ist C++.
 In diesem Projekt wird die Santa Claus Problematik erläutert und mit Hilfe eines C++ Projekt simuliert. Santa Claus wird wegen 
 zwei Faktoren geweckt, sonst benötigt er umbedingt seinen Schlaf. Er wird geweckt, wenn Elfen ihm brauchen, weil sie mit der Arbeit
 nicht weiter kommen, und dadurch die Produktion der Geschenke für die Kinder verlangsamt oder gar gestoppt wird. Deshalb ist es wichtig, dass 
-in diesem Moment Santa geweckt wird, um Santa den Elfen helfen zu können. Zugleich kommen auch die Rentiere in unterschiedlichen Zeitpunkten zurück von ihrere Reise und sammeln sich im Stall.
-Dort warten sie gemeinsam bis sie vollzählig sind und Santa mit ihnen, folgedessen die Geschenke zu den Kindern liefern. Auch in diesem Moment ist es
+in diesem Moment Santa geweckt wird, damit Santa den Elfen helfen kann. Zugleich kommen auch die Rentiere in unterschiedlichen Zeitpunkten von ihrere Reise zurück und sammeln sich im Stall.
+Dort warten sie gemeinsam bis sie vollzählig sind und Santa mit ihnen, folgedessen die Geschenke zu den Kindern liefert. Auch in diesem Moment ist es
 äußerst wichtig, dass Santa geweckt wird, weil er schon einen Teil der Geschenke mit den Rentieren ausliefern kann. Zu beachten ist jedoch, dass es zu keinem Zusammenstoß zwischen den Gruppen kommmt
 und Santa Claus nicht weiß, welche Tätigkeiten zuerst vollendet werden sollen bzw. welche eine höhere Priorität haben.
 
 \section{Aufgabenstelllung}
 Dieses Kapitel umfasst die genaue Beschreibung der Grundproblematik und deren Aufgabenstelllung. Weiters wird auch über die Idee der Umsetzung geschrieben. Zusätzliche Erweiterungen wie
 Kommandozeilenparameter, Konsolenausgabe etc.
-\subsection{Erleuterung der Grundproblematik}
-Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgende Problemstellung beschreiben:\\ 
+\subsection{ErlÄuterung der Grundproblematik}
+Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgende Problemstellung beschrieben:\\ 
 \\Santa Claus sitzt in seinem Spielwarenladen am Nordpol und schläft, während seine zurückgekommene Rentiere im Stall fressen
-um Kräfte für die jährliche Auslieferung der Geschenk an die Kinder zu Weihnachten zu sammeln. Seine fleißigen Elfen arbeiten sorgfälltig an den Geschenken der Kinder
-in der Spielzeugfabrik. Hin und wieder kann es vorkommen, dass die Elven beim Basteln vor einem Problem stehen und ohne Hilfe vom Santa nicht mehr weiter machen können.
+um Kräfte für die jährliche Auslieferung der Geschenk, an die Kinder zu Weihnachten zu sammeln. Seine fleißigen Elfen arbeiten sorgfälltig an den Geschenken der Kinder
+in der Spielzeugfabrik. Hin und wieder kann es vorkommen, dass die Elfen beim Basteln vor einem Problem stehen und ohne Hilfe vom Santa nicht mehr weiter machen können.
 Es wäre eine Katastrophe, wenn die Geschenke nicht rechtzeitig am Heiligen Abend an die Kinder ausgeliefert werden können, weil einige Elfen die Produktion der Geschenke blockiert haben. \\\\
-\\Aus diesem Grund muss Santa Claus umbedingt geweckt werden, obwohl er ein gewisses Maß an dringendem Schlaf benötigt. Erst wenn 3 oder mehr Elfen ohne Hilfe nicht mehr weiter arbeiten können wecken sie ihn auf.
+\\Aus diesem Grund muss Santa Claus umbedingt geweckt werden, obwohl er ein gewisses Maß an Schlaf benötigt. Erst wenn 3 oder mehrere Elfen ohne Hilfe nicht mehr weiter arbeiten können, wecken sie ihn auf.
 Wenn drei Elfen ihr Problem gelöst haben, müssen alle anderen Elfen, die den Weihnachtsmann besuchen wollen auf die Rückkehr dieser Elfen warten.
-Jedoch ist zu beachten, dass wenn Elfen vor der Tür seines Ladens warten, während das letzte Rentier für die Auslieferung aus dem Tropen zurückkehrt, beschließt der Weihnachtsmann, die Elfen bis nach Weihnachten warten zu lassen. Denn die es ist wichtiger den Schlitten
+Jedoch ist zu beachten, dass wenn Elfen vor der Tür seines Ladens warten, während das letzte Rentier für die Auslieferung aus dem Tropen zurückkehrt, beschließt der Weihnachtsmann, die Elfen bis nach Weihnachten warten zu lassen. Denn es ist wichtiger den Schlitten
 fertigzustellen und die Packete auszuliefern.
 Nachdem Santa Claus ihnen beim Problem geholfen hat, können die Elfen erleichternd weiterbasteln und Santa Claus seinen Schlaf forsetzen.\\
 \\Allerdings möchte Santa Claus die Kinder nicht zu lange auf ihre Geschenke warte lassen, und deshalb soll er auch aufgeweckt werden, wenn genuge Rentiere bereit sind bzw. zurück aus ihrem Urlaub im Südpazifik gekommen sind, um den 
 Schlitten mit den Geschenken zu ziehen und eine Ladung Geschenke zu verteilen. Das letzte Rentier, das ankommt, muss den Weihnachtsmann holen, währen die anderen Rentiere gemütlich in der warmen Hütte warten, bevor sie vor dem Schlitten gespannt werden.\\
 \\Die restliche Zeit kann Santa schlafen, um für die nächste anstregenden Tätigkeiten Kräfte zu schöpfen. Mann kann davon ausgehen, dass stets genug Arbeit für die Elfen und genug Geschenke für eine Ladung Geschenke vorhanden sind.
-Das heißt Elfen und Rentiere sind weitgehend unabhängig voneinander. Santa Claus, seine Rentiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintrehten von Szenarien festgehalten werden kann.
+Das heißt Elfen und Rentiere sind weitgehend unabhängig voneinander. Santa Claus, seine Rentiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintreten von Szenarien festgehalten werden kann.
 
 
 \subsection{Idee}
-Das Programm besteht aus drei Threads nämlich: SantaClaus, Rentiere, Elven. Der Thread SantaClaus schläft so lange bis, entweder alle seine benötigten Rentier zurückgekommen sind, oder 3 oder mehrere Elven ihm drigend brauchen.
-Im Thread Renntier kommen Rentiere, nach einer zufälligen Dauer zurück, danach wird Santa geweckt, sodass sie schon einen Teil der Geschenke an die Kinder liefern können. Im Thread Elven wird modiliert, dass
-nach einer zufälligen Zeit Elven Santa um seine Hilfe bitten. Nach einer bestimmten Anzahl von Elfen wird auch hier Santa geweckt, sodass sie weiter arbeiten können. Das wichtige ist vorallem, dass die Geschenke bis zum Heiligen Abend
+Das Programm besteht aus drei Threads nämlich: SantaClaus, Rentiere, Elfen. Der Thread SantaClaus schläft so lange bis, entweder alle seine benötigten Rentiere zurückgekommen sind, oder 3 oder mehrere Elfen ihm dringend brauchen.
+Im Thread Renntier kommen Rentiere, nach einer zufälligen Dauer zurück, danach wird Santa geweckt, sodass sie schon einen Teil der Geschenke an die Kinder liefern können. Im Thread Elfen wird modiliert, dass
+nach einer zufälligen Zeit Elfen Santa um seine Hilfe bitten. Nach einer bestimmten Anzahl von Elfen wird auch hier Santa geweckt, sodass sie weiter arbeiten können. Das wichtige ist vorallem, dass die Geschenke bis zum Heiligen Abend
 ausgeliefert werden können und, dass wenn alle Rentier da sind, Santa auf die Hilferufe der Elfen verzichtet und die Geschenke ausliefert.
 
 \subsection{Kommandozeilenparameter}
 Mit Hilfe von Kommandozeilenparameter soll dem Benutzer ermöglicht, werden die Anzahl der Renntier und der Elfen zu definieren. Diese zwei Zahlen legen die maximal benötigte Anzahl fest, um den Thread Santa Claus aus seinem Schlaf zu holen.
-Ebenso kann der Benutzer auch die Zeit in Stunden bis zu Weihnachten angeben, dadurch kann geprüft werden ob es sich zu geringer Zeit ausgeht die Packete bis zu Weihnachten auszuliefern.
-Es werden keine negativen Zahlen, Buchstaben, Sonderzeichen akzeptiert und wenn der Benutzer sonstige Hilfe braucht kann er sich die Informatione mit dem Kommandozeilenparameter holen.
+Ebenso kann der Benutzer auch die Zeit in Stunden bis zu Weihnachten angeben, dadurch kann geprüft werden, ob es sich in dieser Zeit ausgeht die Packete bis zu Weihnachten auszuliefern.
+Es werden keine negativen Zahlen, Buchstaben, Sonderzeichen akzeptiert und wenn der Benutzer sonstige Hilfe braucht, kann er sich die Informatione mit dem Kommandozeilenparameter holen.
 \begin{minted}{c}
 Santa Claus Problem
 Usage: ./santa_claus_problem [OPTIONS]
@@ -129,9 +128,9 @@ Options:
 \end{minted}
 
 \subsection{Konsolenausgabe}
-Die Abarbeitung bzw. Resultate der Threads SantaClaus, Elven und Rentiere werden in der Kommandozeile ausgegeben. Somit kann der Benutzer gut nachfollziehen, welche Tätigkeiten das Programm abgewickelt hat, welche noch bevor stehen und
-ob es zu Fehlersituation oder Ausnahmen gekommen ist. Angenommen es kommen Rentier zurück oder Elven benötigen Santa´s Hilfe so wird auch in der Kommandozeile dies wird mit spdlog festgehalten. Um am Ende einen genauen und übersichtlichen 
-Überblick den Benutzer zu verschaffen, wird mit dem Kommandozeilenparameter -tab eine Tabelle ausgegeben die Zeigt, wie viele Rentiere im Stall sind, wie viele Elfen Hilfe brauchten und wie viele Stunden Santa Claus geschlafen hat.
+Die Abarbeitung bzw. Resultate der Threads SantaClaus, Elfen und Rentiere werden in der Kommandozeile ausgegeben. Somit kann der Benutzer gut nachfollziehen, welche Tätigkeiten das Programm abgewickelt hat, welche noch bevor stehen und
+ob es zu Fehlersituation oder Ausnahmen gekommen ist. Angenommen es kommen Rentier zurück oder Elfen benötigen Santa´s Hilfe, so auch in der Kommandozeile dies wird mit spdlog festgehalten. Um am Ende einen genauen und übersichtlichen 
+Überblick den Benutzer zu verschaffen, wird mit dem Kommandozeilenparameter -tab eine Tabelle ausgegeben die zeigt, wie viele Rentiere im Stall sind, wie viele Elfen Hilfe brauchten und wie viele Stunden Santa Claus geschlafen hat.
 \newpage
 \section{Themenbereiche}
 Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folien gut dokumentiert sind und von denen ich mir einige Tipps geholt habe:
@@ -155,14 +154,14 @@ Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folie
 \section{Implementierung}
 In diesem Kapitel geht es grundsätzlich um die technische Realisierung der Aufgabenstellung. Im folgendem Abschnitt wird auch
 der Aufbau des Projekts beschrieben. Außerdem enthält dieses Kapitel auch die Dokumentation des Source Codes und wichtige Informationen bezgüglich Bibliotheken, 
-die im Projekt verwendet wurde. 
+die im Projekt verwendet wurden. 
 
 \subsection{Aufbau}
 Das Projekt wurde in 2 wesentlich Verzeichnisse eingeteilt, nämlich in source und documentation. In dem Verzeichniss documentation sind alle Unterlagen der theoretisch Arbeit 
 abgelegt worden. Im Verzeichniss source befinden sich alle relevanten Datein der technischen Umsetzung der Aufgabenstellung.
 Die drei erwähnten Objekte wurden zu je 3 Module aufgeteilt.
-Das heißt die Klassendefinition, Konstruktoren und Methodenprototypen von Santa Claus, Elven und Renntiere stehen in der jeweiligen h-Datei. Die Methodendefinitionen, der dazugehörigen Klasse,
-wurden in der dazugehörigen cpp-Datei kodiert. Zusätzlichen Funktionen die für die Umsetzung des Projekts dringed notwendig waren, wurden in dem Modul utils declariert und definiert.
+Das heißt die Klassendefinition, Konstruktoren und Methodenprototypen von Santa Claus, Elfen und Rentiere stehen in der jeweiligen h-Datei. Die Methodendefinitionen, der dazugehörigen Klasse,
+wurden in der dazugehörigen cpp-Datei kodiert. Zusätzlichen Funktionen die für die Umsetzung des Projekts dringend notwendig waren, wurden in dem Modul utils declariert und definiert.
 Da einige Source Code Abschnitte nicht verständlich und nachfollziebar sind, wurden alle Variablen, Funktionen, Klassen, Methoden und sonstiges gut dokumentiert.\\
 \newpage
 Im unterem Verzeichnissbaum wird die Struktur des Projekts abgebildet
@@ -173,7 +172,7 @@ Im unterem Verzeichnissbaum wird die Struktur des Projekts abgebildet
 .2 {SantaClausProblem\_Dokumentation.pdf}.
 .2 {SantaClausProblem\_Dokumentation.tex}.
 .1 source\DTcomment{enthält alle Datein der praktischen Ausarbeitung}.
-.2 build\DTcomment{darin befinden sich alle automatisch generiert werden Datein}.
+.2 build\DTcomment{darin befinden sich alle automatisch generiert Datein}.
 .3 {build.ninja}.
 .3 {compile\_commands.json}.
 .3 {meson\-info}.
@@ -198,18 +197,20 @@ Im unterem Verzeichnissbaum wird die Struktur des Projekts abgebildet
 }
 \newpage
 \subsection{Source Codes Dokumentation}
-In diesem Abschnitt werden einzelne Programmteile beschreiben und genau erläutert, welche Aufgabe sie haben und welche Resultate davon entzogen werden.
-Es wird auch auf einzelne Grundgedanken, Umsetzungen und Lösungsvarianten daraufeingegangen, um 
+In diesem Abschnitt werden Programmteile genau erläutert, welche Aufgabe sie haben und welche Resultate davon entzogen werden.
+Es wird auf einzelne Grundgedanken, Umsetzungen und Lösungsvarianten daraufeingegangen.
 \subsubsection{Elves [Klasse]}
+Santa Claus schläft währenddessen die Elfen an den Geschenken arbeiten. Sobald ein Problem auftritt, brauchen
+die Elfen seine Hilfe. Dabei wird der Santa Thread mittels der condition variable geweckt. Danach arbeitet Santa jedes Problem der Hilfesuchende ab und legt sich
+danach wieder schlafen.
 \begin{minted}{cpp}
-//Klasse Elven
-class Elves{
+class Elves
 private:
 //Variablen
     SantaClaus *sc;     //Verweis auf das dazugehörige SantaClaus Objekt
     std::mutex &mxe;    //Mutex Obekt
     int elves{0};       //Elfen
-    int maxelves{0};    //Elven die benötigt werden um Santa zu wecken
+    int maxelves{0};    //Elfen die benötigt werden um Santa zu wecken
     int elvessum{0};    //alle Elfen die Hilfe benötigten 
 public:
 //Condition Variable
@@ -219,24 +220,27 @@ public:
         maxelves = me;
     }
 //Methoden
-    //Arbeitsablauf der Elfen, Santa wird geweckt wenn Elfen in benötigen
+    //Arbeitsablauf der Elfen, Santa wird geweckt, wenn Elfen ihn benötigen
     void tinker();
     //Santa Claus hilft jeden einzelnen Elfen
     void get_Help();
     //gibt die Anzahl der Elfen zurück, die Hilfe brauchen
     int get_Elves();
-    /*gibt die Maximale Anzahl der Elfen zurück,
+    /*gibt die maximale Anzahl der Elfen zurück,
      die benötigt werden um Santa zu wecken*/
     int get_MaxElves();
+    //gibt die Summe der Elfen zurück, die Hilfe brauchten
     int get_SumElves();
+    //setzt den Verweis, auf das jeweilige SantaClaus Objekt
     void set_Santa(SantaClaus *s);
-};
 \end{minted}
 
 \subsubsection{Reindeer [Klasse]}
+Natürlich gehören auch die Rentiere zu den Gehilfen von Santa Claus. Wenn alle Rentiere aus dem Osten zurückgekommen sind,
+werden die Tiere vom Weihnachtsmann an den Schlitten angehängt. Dabei muss es eine maximale Anzahl geben, um den Santa Claus erst mal zu wecken. Wie im Text schon verfasst, haben
+die Rentiere eine bedeutsamere Rolle als die Elfen, denn wenn alle Rentiere da sind, bekommen die Elfen erst dann wieder Santa´s Hilfe angeboten, wenn er zurück gekommen ist.
 \begin{minted}{cpp}
-//Klassen Rentiere
-class Reindeer{
+class Reindeer
 private:
 //Variablen
     SantaClaus *sc;         //Verweis auf das dazugehörige SantaClaus Objekt
@@ -253,28 +257,28 @@ public:
 //Methoden
     //Rückkunft aller Rentiere aus dem Osten
     void comeback();
-    //wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
+    /*wenn alle Rentiere da sind, werden sie vom 
+    Santa an dem Schlitten angehängt*/
     void get_Hitched();
-    //gibt die Anzahl der Rentier zurück, die zurückgekommen sind
+    //gibt die Anzahl der Rentiere zurück, die zurückgekommen sind
     int get_Reindeer();
-    /*gibt die Maximale Anzahl der Rentier zurück, 
+    /*gibt die maximale Anzahl der Rentier zurück, 
     die benötigt werden um Santa zu wecken*/
     int get_MaxReindeer();
     //setzt den Verweis, auf das jeweilige SantaClaus Objekt
     void set_Santa(SantaClaus *s);
     //setzt die Anzahl der Renntier auf 0 ->für Debuggen notwendig gewesen
     void reset_Reindeer();
-};
 \end{minted}
-
 \newpage
 \subsubsection{Santa Claus [Klasse]}
+Santa Claus schläft die meiste Zeit, wenn die zwei Faktoren den gewissen Grad auslösen, wird er geweckt. Er hat dabei die Aufgabe, dass am Nordpol alles
+nach Plan verläuft und wenn Hilfe benötigt wird, diese auch zu bewältigen. Auch auf die Rentiere muss er acht geben und wenn die Anzahl erreicht wurde, teilt er mit ihnen die Geschenke aus.
 \begin{minted}{cpp}
-//Klasse Santa Claus
-class SantaClaus{
+class SantaClaus
 private:
 //Variablen
-    Elves &elv;                 //Verweis auf das dazugehörige Elven Objekt
+    Elves &elv;                 //Verweis auf das dazugehörige Elfen Objekt
     Reindeer &ren;              //Verweis auf das dazugehörige Renntier Objekt
     std::mutex &mxs;            //Mutex Obekt
     double blithelytime{0};     //gesamte Schlafzeit
@@ -290,14 +294,14 @@ public:
     }
 //Methoden
     /*Santa schläft und wird geweckt, wenn alle Rentiere zurück 
-    sind oder Elfen ihm 4brauchen*/
+    sind oder Elfen ihn brauchen*/
     void sleep();      
     //gibt die Zeit aus, die Santa munter war         
     int get_Blithelytime(); 
     /*gibt true, false zurück je nachdem wie viele Rentiere
      zurück gekommen sind*/
     bool get_Readytofly(); 
-    //gibt true, false zurück je nachdem wie viele Elven Santa benötigen
+    //gibt true, false zurück je nachdem wie viele Elfen Santa benötigen
     bool get_Readytohelp();
     //addiert die Zeit, in der Santa munter war
     void set_Blithelytime(double t);
@@ -305,7 +309,6 @@ public:
     void set_Readytohelp();
     //setzt die Variable doaction auf true
     void set_Doaction();
-};
 \end{minted}
 \subsubsection{get\_RandomNum[Funktion]}
 \begin{minted}{cpp}
@@ -318,7 +321,7 @@ double get_RandomNum(double start, double end){
 }
 \end{minted}
 Diese Funktion wird in den beiden Klassen Elves und Reindeer verwendet, um eine zufällige Zahl zwischen dem
-Start-Wert und dem End-Wert zu bekommen. Somit kann ermöglicht werden, dass die der Renntiercounter und Elvencounter zu unterschiedlichen
+Start-Wert und dem End-Wert zu bekommen. Somit kann ermöglicht werden, dass der Rentiercounter und Elfencounter zu unterschiedlichen
 verschiedenen Zeiten sich erhöht. 
 \\
 \subsubsection{to\_Christmas[Funktion]}
@@ -331,8 +334,12 @@ void to_Christmas(int hours){
     christmas = true;
 }
 \end{minted}
-
+Diese Funktion hat die Aufgabe, dass nach einer bestimmten Zeit die Variable christmas auf true gesetzt wird, dadurch
+werden alle Threads gejoint und Weihnachten ist aus diesem Grund vorüber
+\newpage
 \subsubsection{write\_IntoJSON[Funktion]}
+Bei dieser Funktion werden Daten wie zum Beispiel wie lange Santa munter war, wie vielen Elfen er geholfen hat oder 
+wie viele Rentiere zurück sind in einer json Datei abgespeichert. Die Daten werden von den mitübergebenen Objekten entzogen.
 \begin{minted}{cpp}
 void write_IntoJSON(SantaClaus *sc, Elves *ev, Reindeer *rn, std::string json_file){
     json data;
@@ -347,7 +354,8 @@ void write_IntoJSON(SantaClaus *sc, Elves *ev, Reindeer *rn, std::string json_fi
     of << data;
 }
 \end{minted}
-
+Mit Hilfe dessen Funktion wird am Ende des Programms ermöglicht, dass die Daten, die ebenso im json File stehen 
+in Form einer Tabelle in der Konsole dargestellt wird.
 \subsubsection{print\_Table[Funktion]}
 \begin{minted}{cpp}
 void print_Table(SantaClaus *sc, Elves *ev, Reindeer *rn){
@@ -366,7 +374,7 @@ void print_Table(SantaClaus *sc, Elves *ev, Reindeer *rn){
 
 \subsection{Verwendete Bibliotheken}
 \subsubsection{CLI11}
-CLI11 bietet alle Funktionen, die man von einem leistungsstarken Befehlszeilenparser erwarten, mit einer schönen, minimalen Syntax und ohne 
+CLI11 bietet alle Funktionen, die man von einem leistungsstarken Befehlszeilenparser erwartet, mit einer schönen, minimalen Syntax und ohne 
 Abhängigkeiten über C++11 hinaus. Es ist eine header-only, um die Einbindung im Projekte zu 
 vereinfachen. CLI11 ist einfach für kleine Projekte zu verwenden, aber leistungsstark genug für komplexe Befehlszeilenprojekte und kann für Frameworks angepasst werden. 
 Es wird mit Travis-, AppVeyor-, Azure- und GitHub-Aktionen getestet und vom GooFit-GPU-Anpassungsframework verwendet. 
@@ -375,8 +383,8 @@ Weitere Informationen zu aktuellen und früheren Versionen findet man im Changel
 \subsubsection{spdlog}
 spdlog ist eine sehr effiziente headeronly C++ Protokollierungsbibliothek. Sie bietet auch ebenfalls eine Python-ähnliche Formatierungs-API unter Verwendung der mitgelieferten fmt lib.
 spdlog verfolgt den Ansatz "include what you need". Der Source Code sollte die Funktionen enthalten, die tatsächlich benötigt werden.
-Den Programmierer wird einen funktionsreiche Formatierung mit der hervorragenden fmt-Bibliothek geboten.
-Im Projekt wird die Libary verwendet, um die Logging Informationen in der Kommandozeile ausgegebenwerden kanne. Zusätzlich ist es auch möglich
+Den Programmierer wird eine funktionsreiche Formatierung mit der hervorragenden fmt-Bibliothek geboten.
+Im Projekt wird die Libary verwendet, um die Logging Informationen in der Kommandozeile ausgegeben werden kanne. Zusätzlich ist es auch möglich
 die Logging Daten nicht nur auszugeben, sonder auch direkt in einem Log-File zu schreiben.
 
 \subsubsection{tabulat}
@@ -391,7 +399,7 @@ beinhaltet.
 In Sprachen wie Python fühlt sich JSON wie ein erstklassiger Datentyp an. 
 Die Entwickler haben die ganze Operator-Magie des modernen C++ verwendet, um das gleiche Gefühl in einem c++ Projekt zu erzielen. 
 Der gesamter Code besteht aus einer einzelnen Header-Datei json.hpp. Keine Bibliothek, kein Teilprojekt, keine Abhängigkeiten, kein komplexes Build-System. 
-Die Klasse ist in Vanilla C++ 11geschrieben. Alles in allem ist keine Anpassung der Compiler-Flags oder Projekteinstellungen erforderlich sein.
+Die Klasse ist in Vanilla C++ 11geschrieben. Alles in allem ist keine Anpassung der Compiler-Flags oder Projekteinstellungen erforderlich.
 Jedes JSON-Objekt hat einen Overhead und einem Aufzählungselement. Die Standardverallgemeinerung verwendet die folgenden C++-Datentypen: std::string für Zeichenfolgen, int64\_t, uint64\_t oder double für Zahlen, std::map für Objekte, std::vector für Arrays und bool für Boolesche Werte. 
 json.hpp ist die einzige erforderliche Datei in single\_include/nlohmann, jedoch muss sie im Projekt mit eingebunden werden. 
 Die Libary wurde in diesem Projekt verwendet, weil sie die Abspeicherung der Daten in einer JSON-Datei ermöglicht.
@@ -416,25 +424,25 @@ möglich sind und welchen Nutzen und Folgen hat.
     ./santa_claus_problem -r 3 -e 5 -t 10
 \end{minted}
 Beim diesem Aufruf des Programmes werden drei wichitge Kriterien im Programm vom Benutzer aus gesetzt.
-Es bekanntlich 3 Renntiere und 5 Elven benötigt um den Thread Santa Claus zu wecke. Mit -t erzeugt man ein Zeitfenster von 10h
-bis zu Weihnachten, wenn in dieser Zeit die benötigten Renntiere nicht im Stall sind, wird in der Console eine Error Meldung ausgegeben.
+Es bekanntlich 3 Rentiere und 5 Elfen benötigt um den Thread Santa Claus zu wecke. Mit -t erzeugt man ein Zeitfenster von 10h
+bis zu Weihnachten, wenn in dieser Zeit die benötigten Rentiere nicht im Stall sind, wird in der Console eine Error Meldung ausgegeben.
 \\
 \begin{minted}{cpp}
     ./santa_claus_problem -r 3 -e 5 -t 10 -d
 \end{minted}
 Weiters ist es auch möglich beim Programmaufruf -d mitzuübergeben. Hiermit wird nach vor Programmende
-eine übersichtliche Tabelle ausgegeben. Die zeigt wie viele Stunden Santa Claus munter war, wie vielen Elven in Summe geholfen wurde und wie viele
-Renntiere im Stall zurückgekommen sind.
+eine übersichtliche Tabelle ausgegeben. Die zeigt wie viele Stunden Santa Claus munter war, wie vielen Elfen in Summe geholfen wurde und wie viele
+Rentiere im Stall zurückgekommen sind.
 \\
 \begin{minted}{cpp}
     ./santa_claus_problem -r 3 -e 5 -t 10 -d -j santa_problem.json
 \end{minted}
-Des Weitern ist es möglich diese Informatioen in einem json File abzuspeichern, angenommen beim Aufruf wird
+Des Weiteren ist es möglich diese Informatioen in einem json File abzuspeichern, angenommen beim Aufruf wird
 der Parameter -j und zusätzlich der Dateiname mitübergeben. 
 \\
 \section{Schlusswort}
-Im Großen und Ganzen kann man sagen, dass es mir großen Spaß gemacht hat das Projekt in c++ umzusetzten, weil ich angefangen bei der Implementierung bis zur theoretisch Ausarbeitung
-sehr viel dazu gelernt habe. Mit diesem Projekt habe ich sehr viele Erfahrungen, Kenntnisse und vorallem Wissen sammeln können bezgüglich Threads, Prozesse, Loggin usw.
-Aus diesem Grund ist für mich die Synchronisation von Threads/Prozessen verständlicher geworden und bin dankbar, dass Herr Professor Kolouseck, es ermöglicht hat die Praktische Arbeit
-in Form einer Projektarbeit abzuwickeln. Zum Schluss möcht ich nochmals daraufeingehen, dass es mir die Realisierung sehr viel Freude gemacht hat, obwohl manche Problem zimlich schwierig zu lösen waren.
+Im Großen und Ganzen kann man sagen, dass es mir großen Spaß gemacht hat das Projekt in c++ umzusetzten, weil ich, angefangen bei der Implementierung bis zur theoretisch Ausarbeitung,
+eine Menge dazu gelernt habe. Mit diesem Projekt habe ich zunehmend Erfahrungen, Kenntnisse und vorallem Wissen sammeln können, bezgüglich Threads, Prozesse, Loggin usw.
+Aus diesem Grund ist für mich die Synchronisation von Threads/Prozessen verständlicher geworden und bin dankbar, dass Herr Professor Kolouseck, es ermöglicht hat, die Praktische Arbeit
+in Form einer Projektarbeit abzuwickeln. Zum Schluss möcht ich nochmals daraufeingehen, dass mir die Realisierung sehr viel Freude gemacht hat, obwohl manche Problem ziemlich schwierig zu lösen waren.
 \end{document}
