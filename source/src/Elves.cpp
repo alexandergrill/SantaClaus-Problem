@@ -25,7 +25,7 @@ using namespace rang;
 
 /*
 -Name: void tinker
--Beschreibung: Arbeitsablauf der Elfen, Santa wird geweckt wenn Elfen in benötigen
+-Beschreibung: Arbeitsablauf der Elfen, Santa wird geweckt, wenn Elfen ihn benötigen
 -Input: 
 -Output:        
 */

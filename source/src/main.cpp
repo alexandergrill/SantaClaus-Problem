@@ -31,8 +31,8 @@ using namespace rang;
 bool christmas;
 
 int main(int argc, char *argv[]){
-    int reendiernum{9};                     //maximale Zahl der Renntier, um Santa zu wecken
-    int elvesnum{3};                        //maximale Zahl der Elven, um Santa zu wecken
+    int reendiernum{9};                     //maximale Zahl der Rentier, um Santa zu wecken
+    int elvesnum{3};                        //maximale Zahl der Elfen, um Santa zu wecken
     int time{24};                           //Anzahl der Stunden bis zu Christmas
     string jsonfilepath;                    //json Filename
     bool display_table{false};              //wird auf true gesetzt wenn am Ende Tabelle geprinted werden soll
@@ -74,8 +74,8 @@ int main(int argc, char *argv[]){
 
     mutex mx;                               //Mutex Objekt
 
-    Elves ev(elvesnum, ref(mx));            //Objekt Elven
-    Reindeer rs(reendiernum, ref(mx));      //Objekt Renntier
+    Elves ev(elvesnum, ref(mx));            //Objekt Elfen
+    Reindeer rs(reendiernum, ref(mx));      //Objekt Rentier
     SantaClaus sc(ev,rs, ref(mx));          //Objekt SantaClaus
     ev.set_Santa(&sc);                      //Santaobjekt wird gesetzt
     rs.set_Santa(&sc);                      //Santaobjekt wird gesetzt

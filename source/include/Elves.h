@@ -17,14 +17,14 @@
 //forward declaration
 class SantaClaus;
 
-//Klasse Elven
+//Klasse Elfen
 class Elves{
 private:
 //Variablen
     SantaClaus *sc;     //Verweis auf das dazugehörige SantaClaus Objekt
     std::mutex &mxe;    //Mutex Obekt
     int elves{0};       //Elfen
-    int maxelves{0};    //Elven die benötigt werden um Santa zu wecken
+    int maxelves{0};    //Elfen die benötigt werden um Santa zu wecken
     int elvessum{0};    //alle Elfen die Hilfe benötigten 
 public:
 //Condition Variable

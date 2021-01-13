@@ -73,7 +73,7 @@ bool SantaClaus::get_Readytofly(){
 
 /*
 -Name: bool get_Readytohelp
--Beschreibung: gibt true, false zurück je nachdem wie viele Elven Santa benötigen
+-Beschreibung: gibt true, false zurück je nachdem wie viele Elfen Santa benötigen
 -Input: 
 -Output: bool readytohelp   
 */

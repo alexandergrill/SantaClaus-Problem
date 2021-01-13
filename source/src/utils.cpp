@@ -26,7 +26,7 @@ using json = nlohmann::json;
 
 /*
 -Name: double get_RandomNum
--Beschreibung: liefter eine Zufallszahl zurück zwischen start und end
+-Beschreibung: liefert eine Zufallszahl zurück zwischen start und end
 -Input: double start, double end
 -Output: double num
 */
@@ -73,7 +73,7 @@ void write_IntoJSON(SantaClaus *sc, Elves *ev, Reindeer *rn, std::string json_fi
 
 /*
 -Name: void write_IntoJSON
--Beschreibung: printed Objekt Information in Form einer Tabelle in der Console
+-Beschreibung: printed Objekt Information in Form einer Tabelle
 -Input: SantaClaus *sc, Elves *ev, Reindeer *rn
 -Output:
 */

@@ -1,0 +1,7 @@
+# ninja log v5
+2	12920	1610484135711318312	santa_claus_problem@exe/src_SantaClaus.cpp.o	34072585f1e65336
+1	13288	1610484136079318396	santa_claus_problem@exe/src_Reindeer.cpp.o	a51752fd589fbc19
+1	13491	1610484136283318437	santa_claus_problem@exe/src_Elves.cpp.o	e8834576d153391f
+3	17612	1610484140399318975	santa_claus_problem@exe/src_utils.cpp.o	eea7eb3df0a528ca
+0	18796	1610484141587319013	santa_claus_problem@exe/src_main.cpp.o	d1ebdb1e40f2c882
+18796	20044	1610484142839318998	santa_claus_problem	8afbaccbffb8b3cf

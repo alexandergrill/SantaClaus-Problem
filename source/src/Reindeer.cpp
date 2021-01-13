@@ -52,7 +52,7 @@ void Reindeer::comeback(){
 
 /*
 -Name: void get_Hitched
--Beschreibung: wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
+-Beschreibung: wenn alle Rentiere da sind, werden sie vom Santa an den Schlitten angehängt
 -Input: 
 -Output:        
 */
@@ -76,7 +76,7 @@ int Reindeer::get_Reindeer(){
 
 /*
 -Name: int get_MaxReindeer
--Beschreibung: gibt die Maximale Anzahl der Rentier zurück, die benötigt werden um Santa zu wecken
+-Beschreibung: gibt die maximale Anzahl der Rentier zurück, die benötigt werden um Santa zu wecken
 -Input: 
 -Output: int maxreindeer
 */
