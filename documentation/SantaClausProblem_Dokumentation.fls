@@ -4,30 +4,6 @@ INPUT c:/texlive/2020/texmf-dist/web2c/texmf.cnf
 INPUT c:/texlive/2020/texmf-var/web2c/pdftex/pdflatex.fmt
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.tex
 OUTPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.log
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/exam/exam.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
-INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
 INPUT c:/texlive/2020/texmf-dist/tex/latex/base/article.cls
@@ -180,6 +156,16 @@ INPUT c:/texlive/2020/texmf-dist/tex/latex/fvextra/fvextra.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/fvextra/fvextra.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/fvextra/fvextra.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/fvextra/fvextra.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
+INPUT c:/texlive/2020/texmf-dist/tex/latex/base/ifthen.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
 INPUT c:/texlive/2020/texmf-dist/tex/latex/etoolbox/etoolbox.sty
@@ -529,17 +515,37 @@ INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausP
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+OUTPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+OUTPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+OUTPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+OUTPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
+INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.aux
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
 INPUT c:/Users/Alexander Grill/Desktop/grill_project_1/documentation/SantaClausProblem_Dokumentation.out.pyg
 INPUT c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-t1.enc
-INPUT c:/texlive/2020/texmf-dist/fonts/enc/dvips/cm-super/cm-super-ts1.enc
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1200.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1440.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx1728.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfbx2488.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfit1200.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sfrm1200.pfb
-INPUT c:/texlive/2020/texmf-dist/fonts/type1/public/cm-super/sftt1200.pfb

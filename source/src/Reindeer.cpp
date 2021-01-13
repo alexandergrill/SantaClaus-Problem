@@ -52,7 +52,7 @@ void Reindeer::comeback(){
 
 /*
 -Name: void get_Hitched
--Beschreibung: Wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
+-Beschreibung: wenn alle Rentiere da sind, werden sie vom Santa an dem Schlitten angehängt
 -Input: 
 -Output:        
 */

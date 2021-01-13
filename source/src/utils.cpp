@@ -83,7 +83,7 @@ void print_Table(SantaClaus *sc, Elves *ev, Reindeer *rn){
     int esum = ev->get_SumElves();
     int rsum = rn->get_Reindeer();
 
-    //objects_table.format().font_style({tabulate::FontStyle::arial}).width(30);
+    objects_table.format().font_style({FontStyle::bold}).width(30);
     objects_table.add_row({"Santa Claus", "Elves", "Reindeer"});
     objects_table.add_row({to_string(btime), to_string(esum), to_string(rsum)});
     cout << objects_table << endl;

@@ -1,4 +1,4 @@
-\documentclass[a4paper,12pt]{exam}
+\documentclass[a4paper,12pt]{article}
 
 \usepackage[utf8]{inputenc}
 \usepackage[ngerman]{babel}
@@ -84,7 +84,6 @@ in diesem Moment Santa geweckt wird, um Santa den Elfen helfen zu können. Zugle
 Dort warten sie gemeinsam bis sie vollzählig sind und Santa mit ihnen, folgedessen die Geschenke zu den Kindern liefern. Auch in diesem Moment ist es
 äußerst wichtig, dass Santa geweckt wird, weil er schon einen Teil der Geschenke mit den Rentieren ausliefern kann. Zu beachten ist jedoch, dass es zu keinem Zusammenstoß zwischen den Gruppen kommmt
 und Santa Claus nicht weiß, welche Tätigkeiten zuerst vollendet werden sollen bzw. welche eine höhere Priorität haben.
-\newpage
 
 \section{Aufgabenstelllung}
 Dieses Kapitel umfasst die genaue Beschreibung der Grundproblematik und deren Aufgabenstelllung. Weiters wird auch über die Idee der Umsetzung geschrieben. Zusätzliche Erweiterungen wie
@@ -95,7 +94,7 @@ Dieses Problem stammt aus William Stalling Operating Systemts. Dabei wird folgen
 um Kräfte für die jährliche Auslieferung der Geschenk an die Kinder zu Weihnachten zu sammeln. Seine fleißigen Elfen arbeiten sorgfälltig an den Geschenken der Kinder
 in der Spielzeugfabrik. Hin und wieder kann es vorkommen, dass die Elven beim Basteln vor einem Problem stehen und ohne Hilfe vom Santa nicht mehr weiter machen können.
 Es wäre eine Katastrophe, wenn die Geschenke nicht rechtzeitig am Heiligen Abend an die Kinder ausgeliefert werden können, weil einige Elfen die Produktion der Geschenke blockiert haben. \\\\
-Aus diesem Grund muss Santa Claus umbedingt geweckt werden, obwohl er ein gewisses Maß an dringendem Schlaf benötigt. Erst wenn 3 oder mehr Elfen ohne Hilfe nicht mehr weiter arbeiten können wecken sie ihn auf.
+\\Aus diesem Grund muss Santa Claus umbedingt geweckt werden, obwohl er ein gewisses Maß an dringendem Schlaf benötigt. Erst wenn 3 oder mehr Elfen ohne Hilfe nicht mehr weiter arbeiten können wecken sie ihn auf.
 Wenn drei Elfen ihr Problem gelöst haben, müssen alle anderen Elfen, die den Weihnachtsmann besuchen wollen auf die Rückkehr dieser Elfen warten.
 Jedoch ist zu beachten, dass wenn Elfen vor der Tür seines Ladens warten, während das letzte Rentier für die Auslieferung aus dem Tropen zurückkehrt, beschließt der Weihnachtsmann, die Elfen bis nach Weihnachten warten zu lassen. Denn die es ist wichtiger den Schlitten
 fertigzustellen und die Packete auszuliefern.
@@ -104,7 +103,7 @@ Nachdem Santa Claus ihnen beim Problem geholfen hat, können die Elfen erleichte
 Schlitten mit den Geschenken zu ziehen und eine Ladung Geschenke zu verteilen. Das letzte Rentier, das ankommt, muss den Weihnachtsmann holen, währen die anderen Rentiere gemütlich in der warmen Hütte warten, bevor sie vor dem Schlitten gespannt werden.\\
 \\Die restliche Zeit kann Santa schlafen, um für die nächste anstregenden Tätigkeiten Kräfte zu schöpfen. Mann kann davon ausgehen, dass stets genug Arbeit für die Elfen und genug Geschenke für eine Ladung Geschenke vorhanden sind.
 Das heißt Elfen und Rentiere sind weitgehend unabhängig voneinander. Santa Claus, seine Rentiere und die Elfen müssen jeweils durch einen eigene Thread umgesetzt werden, sodass das unterschedlichen Eintrehten von Szenarien festgehalten werden kann.
-\newpage
+
 
 \subsection{Idee}
 Das Programm besteht aus drei Threads nämlich: SantaClaus, Rentiere, Elven. Der Thread SantaClaus schläft so lange bis, entweder alle seine benötigten Rentier zurückgekommen sind, oder 3 oder mehrere Elven ihm drigend brauchen.
@@ -121,12 +120,12 @@ Santa Claus Problem
 Usage: ./santa_claus_problem [OPTIONS]
 
 Options:
-  -h,--help             Print this help message and exit
-  -r,--r INT            number of reindeer, which will be needed to fly
-  -e,--e INT            number of elves, that work in the factory
-  -t,--t INT            number of hours until christmas
-  -j,--j TEXT:FILE      write santa, reindeer, elves details in json File
-  -d,--d                show you a table about the Objects Santa, Elves, Reindeer
+  -h,--help         Print this help message and exit
+  -r,--r INT        number of reindeer, which will be needed to fly
+  -e,--e INT        number of elves, that work in the factory
+  -t,--t INT        number of hours until christmas
+  -j,--j TEXT:FILE  write santa, reindeer, elves details in json File
+  -d,--d            show you a table about the Objects Santa, Elves, Reindeer
 \end{minted}
 
 \subsection{Konsolenausgabe}
@@ -134,7 +133,6 @@ Die Abarbeitung bzw. Resultate der Threads SantaClaus, Elven und Rentiere werden
 ob es zu Fehlersituation oder Ausnahmen gekommen ist. Angenommen es kommen Rentier zurück oder Elven benötigen Santa´s Hilfe so wird auch in der Kommandozeile dies wird mit spdlog festgehalten. Um am Ende einen genauen und übersichtlichen 
 Überblick den Benutzer zu verschaffen, wird mit dem Kommandozeilenparameter -tab eine Tabelle ausgegeben die Zeigt, wie viele Rentiere im Stall sind, wie viele Elfen Hilfe brauchten und wie viele Stunden Santa Claus geschlafen hat.
 \newpage
-
 \section{Themenbereiche}
 Das Projekt umfasst folgende Themengebiete, die unter anderem in folgenden Folien gut dokumentiert sind und von denen ich mir einige Tipps geholt habe:
     \begin{itemize}
@@ -230,7 +228,7 @@ public:
     void set_Santa(SantaClaus *s);
 };
 \end{minted}
-\newpage
+
 \subsubsection{Reindeer [Klasse]}
 \begin{minted}{cpp}
 //Klassen Rentiere
@@ -264,7 +262,7 @@ public:
     void reset_Reindeer();
 };
 \end{minted}
-\newpage
+
 \subsubsection{Santa Claus [Klasse]}
 \begin{minted}{cpp}
 //Klasse Santa Claus
@@ -282,7 +280,8 @@ public:
 //Condition Variable
     std::condition_variable santaSem;
 //Konstruktor
-    SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e}, ren{r}, mxs{xs}{
+    SantaClaus(Elves& e, Reindeer& r, std::mutex& xs): elv{e},
+    ren{r}, mxs{xs}{
     }
 //Methoden
     /*Santa schläft und wird geweckt, wenn alle Rentiere zurück 
@@ -290,7 +289,8 @@ public:
     void sleep();      
     //gibt die Zeit aus, die Santa munter war         
     int get_Blithelytime(); 
-    //gibt true, false zurück je nachdem wie viele Rentiere zurück gekommen sind
+    /*gibt true, false zurück je nachdem wie viele Rentiere
+     zurück gekommen sind*/
     bool get_Readytofly(); 
     //gibt true, false zurück je nachdem wie viele Elven Santa benötigen
     bool get_Readytohelp();
@@ -302,17 +302,94 @@ public:
     void set_Doaction();
 };
 \end{minted}
-\newpage
-\subsubsection{Zusätzliche Funktionen}
-\subsubsection{Sonstiges}
+\subsubsection{get\_RandomNum[Funktion]}
+\begin{minted}{cpp}
+double get_RandomNum(double start, double end){
+    random_device rd;
+    mt19937 gen{rd()};
+    uniform_real_distribution<> dis{start, end};
+    double num = dis(gen);
+    return num;
+}
+\end{minted}
+Diese Funktion wird in den beiden Klassen Elves und Reindeer verwendet, um eine zufällige Zahl zwischen dem
+Start-Wert und dem End-Wert zu bekommen. Somit kann ermöglicht werden, dass die der Renntiercounter und Elvencounter zu unterschiedlichen
+verschiedenen Zeiten sich erhöht. 
+\\
+\subsubsection{to\_Christmas[Funktion]}
+\begin{minted}{cpp}
+void to_Christmas(int hours){
+    christmas = false;
+    for (int i = 0; i < hours; i++){
+        sleep(1);
+    }
+    christmas = true;
+}
+\end{minted}
+
+\subsubsection{write\_IntoJSON[Funktion]}
+\begin{minted}{cpp}
+void write_IntoJSON(SantaClaus *sc, Elves *ev, Reindeer *rn, std::string json_file){
+    json data;
+    ofstream of(json_file);
+    double btime = sc->get_Blithelytime();
+    int esum = ev->get_SumElves();
+    int rsum = rn->get_Reindeer();
+
+    data["Santa Claus"]["Blithely Hours"] = btime;
+    data["Reindeer"]["In Stable"] = rsum;
+    data["Elves"]["Hellped Elves"] = esum;
+    of << data;
+}
+\end{minted}
+
+\subsubsection{print\_Table[Funktion]}
+\begin{minted}{cpp}
+void print_Table(SantaClaus *sc, Elves *ev, Reindeer *rn){
+    Table objects_table;
+    double btime = sc->get_Blithelytime();
+    int esum = ev->get_SumElves();
+    int rsum = rn->get_Reindeer();
+
+    objects_table.format().font_style({FontStyle::bold}).width(30);
+    objects_table.add_row({"Santa Claus", "Elves", "Reindeer"});
+    objects_table.add_row({to_string(btime), to_string(esum), to_string(rsum)});
+    cout << objects_table << endl;
+}
+\end{minted}
+
 
 \subsection{Verwendete Bibliotheken}
 \subsubsection{CLI11}
+CLI11 bietet alle Funktionen, die man von einem leistungsstarken Befehlszeilenparser erwarten, mit einer schönen, minimalen Syntax und ohne 
+Abhängigkeiten über C++11 hinaus. Es ist eine header-only, um die Einbindung im Projekte zu 
+vereinfachen. CLI11 ist einfach für kleine Projekte zu verwenden, aber leistungsstark genug für komplexe Befehlszeilenprojekte und kann für Frameworks angepasst werden. 
+Es wird mit Travis-, AppVeyor-, Azure- und GitHub-Aktionen getestet und vom GooFit-GPU-Anpassungsframework verwendet. 
+Es wurde von plumbum.cli für Python inspiriert. CLI11 bietet eine benutzerfreundliche Einführung in diese README-Datei, ein ausführlicheres Tutorial-GitBook sowie eine von Travis generierte API-Dokumentation. 
+Weitere Informationen zu aktuellen und früheren Versionen findet man im Changelog oder in den GitHub-Versionen.
 \subsubsection{spdlog}
+spdlog ist eine sehr effiziente headeronly C++ Protokollierungsbibliothek. Sie bietet auch ebenfalls eine Python-ähnliche Formatierungs-API unter Verwendung der mitgelieferten fmt lib.
+spdlog verfolgt den Ansatz "include what you need". Der Source Code sollte die Funktionen enthalten, die tatsächlich benötigt werden.
+Den Programmierer wird einen funktionsreiche Formatierung mit der hervorragenden fmt-Bibliothek geboten.
+Im Projekt wird die Libary verwendet, um die Logging Informationen in der Kommandozeile ausgegebenwerden kanne. Zusätzlich ist es auch möglich
+die Logging Daten nicht nur auszugeben, sonder auch direkt in einem Log-File zu schreiben.
+
 \subsubsection{tabulat}
+tabulate ist eine reine headeronly-Bibliothek. 
+Man legt eine Objekt Table an und kann mittel Table.add\_rows neue Zeilen in der Tabelle hinzufügen.
+Die Tabelle kann mittels Table.format() formatieren werden, das ein Format-Objekt zurückgibt. 
+Es können damit die Eigenschaften der Tabelle formatieren werden, z. B. Rahmen, Schriftstile, Farben usw.
+Auf Zeilen in der Tabelle greift man mitTabelle [row\_index] zu. Dies gibt ein Zeilenobjekt zurück, für das man Row.format() auf ähnliche Weise aufrufen kann, um die Eigenschaften aller Zellen in dieser Zeile zu formatierne.
+Die Biblio wurde verwendet, sodass am Ende des Programmes eine übersichtliche Tabelle ausgegeben werden kann, die sämtliche Daten der Objekte
+beinhaltet.
 \subsubsection{json}
-
-
+In Sprachen wie Python fühlt sich JSON wie ein erstklassiger Datentyp an. 
+Die Entwickler haben die ganze Operator-Magie des modernen C++ verwendet, um das gleiche Gefühl in einem c++ Projekt zu erzielen. 
+Der gesamter Code besteht aus einer einzelnen Header-Datei json.hpp. Keine Bibliothek, kein Teilprojekt, keine Abhängigkeiten, kein komplexes Build-System. 
+Die Klasse ist in Vanilla C++ 11geschrieben. Alles in allem ist keine Anpassung der Compiler-Flags oder Projekteinstellungen erforderlich sein.
+Jedes JSON-Objekt hat einen Overhead und einem Aufzählungselement. Die Standardverallgemeinerung verwendet die folgenden C++-Datentypen: std::string für Zeichenfolgen, int64\_t, uint64\_t oder double für Zahlen, std::map für Objekte, std::vector für Arrays und bool für Boolesche Werte. 
+json.hpp ist die einzige erforderliche Datei in single\_include/nlohmann, jedoch muss sie im Projekt mit eingebunden werden. 
+Die Libary wurde in diesem Projekt verwendet, weil sie die Abspeicherung der Daten in einer JSON-Datei ermöglicht.
 \section{Anwendungsfälle}
 Im folgendem Abschnitt werden alle Andwendungsfälle, die ein Benutzer durchführen kann, verkörpert. Dabei wird besonders auf
 die Kommandozeilenparameter eingegangen.
@@ -320,24 +397,35 @@ die Kommandozeilenparameter eingegangen.
 \begin{minted}{cpp}
     ./santa_claus_problem
 \end{minted}
-Dabei wird das Programm santa\_claus\_problem gestartet. Wobei 9 Rentiere und 3 Elfen
+Durch diesem Befehl wird das Programm santa\_claus\_problem gestartet. Wobei 9 Rentiere und 3 Elfen
 gebraucht werden um Santa Claus aus seinem Schlaf zu wecken. Es werden 24 Stunde bis zur Auslieferung der Geschenke gewährleistet
 \\
 \begin{minted}{cpp}
     ./santa_claus_problem -h
 \end{minted}
-
+Mit den zusätzlichen Kommandozeilenparameter -h wird das Programm gestartet, hingegen wird das Programm
+nach einer kurzen Zeit beendet. In der Conosle wird dem Benutzer angezeigt welche ergänzende Kommandozeilenparameter
+möglich sind und welchen Nutzen und Folgen hat.
+\\
 \begin{minted}{cpp}
     ./santa_claus_problem -r 3 -e 5 -t 10
 \end{minted}
-
+Beim diesem Aufruf des Programmes werden drei wichitge Kriterien im Programm vom Benutzer aus gesetzt.
+Es bekanntlich 3 Renntiere und 5 Elven benötigt um den Thread Santa Claus zu wecke. Mit -t erzeugt man ein Zeitfenster von 10h
+bis zu Weihnachten, wenn in dieser Zeit die benötigten Renntiere nicht im Stall sind, wird in der Console eine Error Meldung ausgegeben.
+\\
 \begin{minted}{cpp}
     ./santa_claus_problem -r 3 -e 5 -t 10 -d
 \end{minted}
-
+Weiters ist es auch möglich beim Programmaufruf -d mitzuübergeben. Hiermit wird nach vor Programmende
+eine übersichtliche Tabelle ausgegeben. Die zeigt wie viele Stunden Santa Claus munter war, wie vielen Elven in Summe geholfen wurde und wie viele
+Renntiere im Stall zurückgekommen sind.
+\\
 \begin{minted}{cpp}
-    ./santa_claus_problem -r 3 -e 5 -t 10 -d -e santa_problem.json
+    ./santa_claus_problem -r 3 -e 5 -t 10 -d -j santa_problem.json
 \end{minted}
+Des Weitern ist es möglich diese Informatioen in einem json File abzuspeichern, angenommen beim Aufruf wird
+der Parameter -j und zusätzlich der Dateiname mitübergeben. 
 
 
 
